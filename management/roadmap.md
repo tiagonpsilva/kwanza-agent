@@ -150,7 +150,7 @@ Criar um agente conversacional que permita aos usuários listar, favoritar e cla
 
 #### 6.1 Configuração LLM
 
-- [ ] Integração com LlamaIndex
+- [ ] Integração com LangChain
 - [ ] Configuração de APIs externas (OpenAI/Anthropic)
 - [ ] **Configuração Ollama** para modelos locais
 - [ ] Sistema de tokens e limites
@@ -168,9 +168,9 @@ Criar um agente conversacional que permita aos usuários listar, favoritar e cla
 
 - [ ] Configuração do ChromaDB (vector database para RAG)
 - [ ] **Vetorização de notícias com ChromaDB**
-- [ ] **Embeddings usando Ollama** (local) ou APIs
+- [ ] **Embeddings usando LangChain + Ollama** (local) ou APIs
 - [ ] Busca semântica por similaridade
-- [ ] Contextualização de respostas
+- [ ] Contextualização de respostas com LangChain
 
 ### 🚀 **Fase 7: Deploy & Monitoramento** (Semanas 13-14)
 
@@ -220,7 +220,7 @@ Criar um agente conversacional que permita aos usuários listar, favoritar e cla
 
 ### IA/ML
 
-- **LlamaIndex** como framework principal
+- **LangChain** como framework principal
 - **ChromaDB** para RAG e embeddings
 - **OpenAI/Anthropic** APIs externas
 - **Ollama** para modelos locais (llama2, mistral, etc.)
@@ -260,7 +260,7 @@ Criar um agente conversacional que permita aos usuários listar, favoritar e cla
 ## Riscos e Mitigações
 
 ### Riscos Técnicos
-- **Complexidade de integração LLM**: Usar LlamaIndex para abstração
+- **Complexidade de integração LLM**: Usar LangChain para abstração
 - **Performance com grandes volumes**: Implementar cache e paginação
 - **Custos de API**: Implementar monitoramento e limites
 
@@ -288,7 +288,13 @@ Criar um agente conversacional que permita aos usuários listar, favoritar e cla
 
 ## Histórico de Versões
 
-**Roadmap v2.0** - Última atualização: 2025-06-19
+**Roadmap v2.1** - Última atualização: 2025-06-19
+
+### Mudanças v2.1 (Framework IA)
+- **LlamaIndex → LangChain**: Mudança do framework principal de IA
+- **Integração LangChain + Ollama**: Para embeddings e modelos locais
+- **Contextualização com LangChain**: Para respostas mais robustas
+- **Mitigação de riscos**: Atualizada para LangChain
 
 ### Mudanças v2.0 (Frontend-First Approach)
 - **Reestruturação completa**: Priorização UX/Frontend antes Backend

@@ -43,11 +43,11 @@ Primeiro AI Agent que servirá como template para outros projetos de agentes. O 
 
 ### Back-end
 
-- Python / FastAPI / Pydantic
+- Python / FastAPI / Pydantic / Pytest / Poetry
 
 ### IA
 
-- LlamaIndex - framework de desenvolvimento
+- Langchain - framework de desenvolvimento
 - ChromaDB - Vector Database (RAG)
 - Redis - Short-term memory
 - Ollama - Modelos locais
@@ -176,6 +176,40 @@ Antes de qualquer decisão, responder às **14 perguntas essenciais**:
 
 ## Boas Práticas de Gestão
 
+### Templates de Gestão
+
+- **User Stories**: Template estruturado em `docs/templates/user-story-template.md`
+  - Critérios de aceite em formato Gherkin (Given/When/Then)
+  - Recursos visuais obrigatórios (mockups, wireframes, protótipos)
+  - Definition of Ready (DoR) e Definition of Done (DoD)
+  - Tasks técnicas detalhadas
+  - Testes de usabilidade
+
+- **Enabler Stories**: Template estruturado em `docs/templates/enabler-story-template.md`
+  - Especificação técnica completa
+  - Diagramas de sequência obrigatórios (PlantUML)
+  - Arquitetura e design detalhados
+  - Critérios de aceite técnicos
+  - Riscos e mitigações
+  - Métricas de sucesso
+
+- **Definition of Done (DoD)**: Critérios obrigatórios em `docs/templates/definition-of-done.md`
+  - DoD específico para User Stories
+  - DoD específico para Enabler Stories
+  - Critérios por contexto (Frontend, Backend, IA)
+  - Processo de validação estruturado
+  - Métricas de qualidade
+
+### Processo de Validação de Tasks
+
+- **Definition of Ready (DoR)**: Checklist obrigatório antes de iniciar development
+- **Definition of Done (DoD)**: Checklist obrigatório para considerar task finalizada
+- **Aprovação por Stakeholders**: Product Owner (US) / Tech Lead (EN)
+- **Code Review**: Obrigatório para todo código (mínimo 1 reviewer)
+- **Testes**: Cobertura mínima 80% para código crítico
+
+### Roadmap e Planejamento
+
 - Roadmap View
 - User Stories
 - Enabler Stories
@@ -202,13 +236,20 @@ kwanza-agent/
 │   │   ├── specifications/    # APIs, schemas, integrações
 │   │   └── patterns/          # Padrões de desenvolvimento
 │   └── templates/             # Templates para documentação
-│       └── adr-template.md    # Template para ADRs
+│       ├── adr-template.md    # Template para ADRs
+│       ├── user-story-template.md      # Template para User Stories
+│       ├── enabler-story-template.md   # Template para Enabler Stories
+│       └── definition-of-done.md       # Definition of Done
 ├── management/                 # Documentação de gestão
 │   ├── roadmap.md             # Roadmap do projeto
 │   ├── time-tracking.md       # Log de tempo de desenvolvimento
+│   ├── ai-cost-tracking.md    # Log de custos de desenvolvimento com IA
+│   ├── cost-metrics.md        # Métricas e análises de performance/ROI
 │   └── scripts/               # Scripts de análise
 │       ├── weekly-analysis.sh # Análise semanal de tempo
-│       └── time-report.py     # Relatórios detalhados
+│       ├── time-report.py     # Relatórios detalhados de tempo
+│       ├── cost-tracker.sh    # Interface interativa para tracking de custos
+│       └── cost-analysis.py   # Análise detalhada de custos e ROI
 └── CLAUDE.md                  # Este arquivo
 ```
 
@@ -226,6 +267,15 @@ kwanza-agent/
 - `python management/scripts/time-report.py` - Relatório completo
 - `python management/scripts/time-report.py --daily` - Relatório diário
 - `python management/scripts/time-report.py --daily 2025-06-19` - Relatório de data específica
+
+## Comandos de AI Cost Tracking
+
+- `./management/scripts/cost-tracker.sh add` - Adicionar entrada de custo interativa
+- `./management/scripts/cost-tracker.sh daily` - Relatório diário de custos
+- `./management/scripts/cost-tracker.sh weekly` - Relatório semanal de custos
+- `./management/scripts/cost-tracker.sh summary` - Relatório resumo completo
+- `python management/scripts/cost-analysis.py --summary` - Análise detalhada de custos
+- `python management/scripts/cost-analysis.py --json` - Exportar dados em JSON
 
 ## Integrações
 
@@ -254,8 +304,62 @@ Este projeto está sincronizado com o Linear:
 
 - **TODAS** as atividades devem ser refletidas como tasks no Linear
 - Cada funcionalidade deve ser quebrada em tasks específicas
-- Tasks devem seguir o padrão: [TIPO] Descrição clara da atividade
-- Usar labels apropriadas: `frontend`, `backend`, `ai`, `infra`, `docs`
+- Tasks devem seguir templates de User Story ou Enabler Story
+- **Labels obrigatórias** para organização e filtros:
+
+#### Sistema de Labels no Linear
+
+**Por Tipo de Task:**
+- `Feature` - Novas funcionalidades
+- `Bug` - Correções de problemas
+- `Improvement` - Melhorias incrementais
+- `Docs` - Documentação
+- `Test` - Testes e qualidade
+- `Infra` - Infraestrutura e DevOps
+
+**Por Natureza da Story:**
+- `user-story` - Funcionalidades voltadas ao usuário final
+- `enabler-story` - Capacidades técnicas e arquiteturais
+
+**Por Tecnologia/Área:**
+- `frontend` - React, UI/UX, componentes
+- `backend` - FastAPI, APIs, serviços
+- `ai` - LangChain, LLM, embeddings
+- `database` - PostgreSQL, MongoDB, ChromaDB
+- `architecture` - Arquitetura, ADRs, C4 Model
+
+**Por Fase do Projeto:**
+- `fase-1-foundation` - Configuração inicial e UX
+- `fase-2-landing` - Landing page e interface
+- `fase-3-chat` - Interface conversacional
+- `fase-4-validation` - Testes e validação UX
+- `fase-5-backend` - Arquitetura backend
+- `fase-6-ai` - IA e funcionalidades core
+- `fase-7-deploy` - Deploy e monitoramento
+
+**Por Prioridade de Frontend-First:**
+- `critical-path` - Caminho crítico do projeto
+- `ux-validation` - Requer validação com usuários
+- `design-system` - Componentes do design system
+- `mobile-first` - Otimização mobile prioritária
+
+#### Implementação do Sistema de Labels
+
+**Status:** ✅ **Implementado** (2025-06-19)
+
+- **16 tasks da Fase 1** criadas no Linear com sistema completo de labels
+- **Labels organizadas** em 5 categorias para máxima flexibilidade de filtros
+- **Segregação User Stories vs Enabler Stories** para gestão direcionada
+
+**Distribuição das Tasks da Fase 1:**
+- **10 User Stories** (foco no usuário): UX/UI, componentes, navegação
+- **6 Enabler Stories** (foco técnico): arquitetura, testes, documentação
+- **100% frontend/UX**: Alinhado com estratégia frontend-first
+
+**Templates Estruturados Criados:**
+- `docs/templates/user-story-template.md` - User Stories com critérios de aceite
+- `docs/templates/enabler-story-template.md` - Enabler Stories com diagramas técnicos
+- `docs/templates/definition-of-done.md` - Critérios de validação por contexto
 
 ### Controle de Versão
 
@@ -276,3 +380,52 @@ Este projeto está sincronizado com o Linear:
 - Tasks completadas no código devem ser marcadas como "Done" no Linear
 - Comentários relevantes devem ser adicionados nas tasks do Linear
 - Links para commits/PRs devem ser incluídos nas tasks quando aplicável
+
+---
+
+## Histórico de Atualizações do CLAUDE.md
+
+**CLAUDE.md v1.2** - 2025-06-19
+
+### ✅ Implementações Realizadas
+
+**Templates de Gestão Estruturados:**
+- `docs/templates/user-story-template.md` - User Stories com critérios de aceite Gherkin
+- `docs/templates/enabler-story-template.md` - Enabler Stories com diagramas de sequência
+- `docs/templates/definition-of-done.md` - Critérios de validação por contexto
+
+**Sistema de Labels no Linear:**
+- **5 categorias** de labels para organização completa
+- **16 tasks da Fase 1** criadas e categorizadas
+- **10 User Stories** (foco usuário) + **6 Enabler Stories** (foco técnico)
+- **100% alinhamento** com estratégia frontend-first
+
+**AI Cost Management System:**
+- `management/ai-cost-tracking.md` - Log estruturado de custos de desenvolvimento
+- `management/cost-metrics.md` - Métricas de performance e ROI
+- `management/scripts/cost-tracker.sh` - Interface interativa para logging
+- `management/scripts/cost-analysis.py` - Análise detalhada e relatórios
+
+**Framework Tecnológico:**
+- **LangChain** como framework principal de IA (substituindo LlamaIndex)
+- **Roadmap v2.1** atualizado com nova tecnologia
+- **Integração GitHub/Linear** via MCP funcionando
+
+### 🎯 Próximos Passos
+
+1. **Execução da Fase 1**: Implementar tasks criadas seguindo ordem de prioridade
+2. **Cost Tracking**: Registrar custos de todas as sessões de desenvolvimento com IA
+3. **Validação UX**: Aplicar templates em protótipos e testes de usabilidade  
+4. **ROI Analysis**: Análise comparativa de eficiência IA vs desenvolvimento tradicional
+5. **Expansion do Sistema**: Criar tasks das Fases 2-7 seguindo mesmo padrão
+
+### 💰 Metas de Cost Management
+
+**Benchmarks de Eficiência:**
+- **Custo por Task**: < $0.05 USD
+- **Taxa de Sucesso**: > 95%
+- **ROI Mínimo**: > 500% (vs desenvolvimento tradicional)
+
+**Limites de Orçamento:**
+- **Por Fase**: < $15.00 USD
+- **Projeto Completo**: < $100.00 USD
