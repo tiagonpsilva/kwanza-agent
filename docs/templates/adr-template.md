@@ -6,11 +6,36 @@
 ## Contexto
 Descreva o contexto que motivou esta decisão arquitetural, respondendo ao questionário do arquiteto:
 
-### Contexto e Motivação
-- **Qual problema estamos resolvendo?**
-- **Por que agora? Qual é a urgência?**
-- **Quais são as limitações atuais?**
-- **Que métricas demonstram o problema?**
+### Questionário do Arquiteto
+Responder às **14 perguntas essenciais**:
+
+**💰 Custo e Viabilidade:**
+- Qual é o custo de implementação vs benefício?
+- Há alternativas mais simples que resolvem 80% do problema?
+
+**⚡ Performance e Escalabilidade:**
+- Como isso afeta a latência e throughput?
+- A solução escala com o crescimento esperado?
+
+**🔧 Complexidade e Manutenibilidade:**
+- Qual é a complexidade adicionada ao sistema?
+- A equipe consegue manter essa solução?
+
+**🏆 Qualidade e Confiabilidade:**
+- Como garantir a qualidade da solução?
+- Quais são os pontos de falha críticos?
+
+**🔒 Segurança e Proteção:**
+- Quais são os riscos de segurança introduzidos?
+- Como proteger dados sensíveis e privacidade dos usuários?
+
+**👤 Usabilidade e Experiência:**
+- Como isso impacta a experiência do usuário?
+- A solução é intuitiva e acessível?
+
+**🚀 Implementação e Riscos:**
+- Qual é o esforço real de implementação?
+- Como reverter se não funcionar como esperado?
 
 ### Ambiente Atual
 - Descrição do estado atual da arquitetura
@@ -45,19 +70,16 @@ Descreva claramente a decisão que foi tomada. Seja específico sobre:
 ### Processo de Avaliação
 Responder às perguntas do questionário arquitetural:
 
-#### Análise de Soluções
-- **Quais alternativas foram consideradas?**
-- **Qual é o critério de decisão principal?**
-- **Quais são os trade-offs de cada opção?**
-- **Como isso afeta a performance?**
-- **Qual é o impacto na manutenibilidade?**
+#### Critérios de Avaliação
+Avaliar cada alternativa nos **7 critérios essenciais**:
 
-#### Implementação e Riscos
-- **Qual é o esforço de implementação?**
-- **Quais são os riscos técnicos?**
-- **Como reverter se der errado?**
-- **Quais dependências são criadas?**
-- **Como isso afeta outros sistemas?**
+1. **💰 Custo**: Recursos financeiros e de desenvolvimento
+2. **📈 Escalabilidade**: Capacidade de crescimento
+3. **⚡ Latência**: Impacto na performance
+4. **🔧 Complexidade**: Simplicidade de implementação e manutenção
+5. **🏆 Qualidade**: Confiabilidade e robustez da solução
+6. **🔒 Segurança**: Proteção de dados e conformidade
+7. **👤 Usabilidade**: Experiência e acessibilidade do usuário
 
 ### Alternativas Avaliadas
 
@@ -65,24 +87,27 @@ Responder às perguntas do questionário arquitetural:
 - **Descrição**: Breve descrição da alternativa
 - **Prós**: Benefícios desta alternativa
 - **Contras**: Limitações desta alternativa
-- **Critérios de Avaliação**: Performance, Manutenibilidade, Segurança, Custo
+- **Critérios de Avaliação**: Custo, Escalabilidade, Latência, Complexidade, Qualidade, Segurança, Usabilidade
 - **Por que foi rejeitada**: Razão específica
 
 ### Alternativa 2: [Nome]
 - **Descrição**: Breve descrição da alternativa
 - **Prós**: Benefícios desta alternativa
 - **Contras**: Limitações desta alternativa
-- **Critérios de Avaliação**: Performance, Manutenibilidade, Segurança, Custo
+- **Critérios de Avaliação**: Custo, Escalabilidade, Latência, Complexidade, Qualidade, Segurança, Usabilidade
 - **Por que foi rejeitada**: Razão específica
 
 ## Critérios de Decisão
 
 | Critério | Peso | Alt 1 | Alt 2 | Escolhida | Justificativa |
 |----------|------|-------|-------|-----------|---------------|
-| Performance | Alto | 7/10 | 8/10 | 9/10 | [Explicação] |
-| Manutenibilidade | Alto | 6/10 | 9/10 | 8/10 | [Explicação] |
-| Segurança | Alto | 8/10 | 7/10 | 9/10 | [Explicação] |
-| Custo | Médio | 9/10 | 6/10 | 7/10 | [Explicação] |
+| 💰 Custo | Alto | /5 | /5 | /5 | [Custo-benefício da solução] |
+| 📈 Escalabilidade | Alto | /5 | /5 | /5 | [Capacidade de crescimento] |
+| ⚡ Latência | Alto | /5 | /5 | /5 | [Impacto na performance] |
+| 🔧 Complexidade | Alto | /5 | /5 | /5 | [Simplicidade de manutenção] |
+| 🏆 Qualidade | Alto | /5 | /5 | /5 | [Confiabilidade da solução] |
+| 🔒 Segurança | Alto | /5 | /5 | /5 | [Proteção e conformidade] |
+| 👤 Usabilidade | Alto | /5 | /5 | /5 | [Experiência do usuário] |
 
 ## Detalhes de Implementação
 Forneça detalhes específicos sobre como a decisão será implementada:
@@ -96,17 +121,10 @@ Forneça detalhes específicos sobre como a decisão será implementada:
 ### Métricas de Sucesso
 Responder às perguntas operacionais:
 
-#### Monitoramento
-- **Como monitorar o sucesso?**
-- **Quais métricas de performance?**
-- **Como debuggar problemas?**
-- **Qual é o impacto operacional?**
-
-#### Conhecimento da Equipe
-- **A equipe tem conhecimento necessário?**
-- **Qual é o impacto no onboarding?**
-- **Documentação necessária?**
-- **Treinamento requerido?**
+#### Monitoramento Simplificado
+- **Métricas de sucesso**: Como medir se a decisão foi bem-sucedida?
+- **Sinais de problema**: Que indicadores mostram que algo está errado?
+- **Plano de contingência**: Como agir se a solução não funcionar?
 
 ### Critérios de Sucesso
 - Métricas específicas a serem monitoradas

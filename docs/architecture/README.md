@@ -113,51 +113,47 @@ Padrões de arquitetura e desenvolvimento.
 
 ### Questionário do Arquiteto 🏗️
 
-Toda proposta de mudança arquitetural deve responder:
+Toda proposta de mudança arquitetural deve responder às **14 perguntas essenciais**:
 
-#### **Contexto e Motivação**
-1. **Qual problema estamos resolvendo?**
-2. **Por que agora? Qual é a urgência?**
-3. **Quais são as limitações atuais?**
-4. **Que métricas demonstram o problema?**
+#### **💰 Custo e Viabilidade**
+1. **Qual é o custo de implementação vs benefício?**
+2. **Há alternativas mais simples que resolvem 80% do problema?**
 
-#### **Análise de Soluções**
-5. **Quais alternativas foram consideradas?**
-6. **Qual é o critério de decisão principal?**
-7. **Quais são os trade-offs de cada opção?**
-8. **Como isso afeta a performance?**
-9. **Qual é o impacto na manutenibilidade?**
+#### **⚡ Performance e Escalabilidade**
+3. **Como isso afeta a latência e throughput?**
+4. **A solução escala com o crescimento esperado?**
 
-#### **Implementação e Riscos**
-10. **Qual é o esforço de implementação?**
-11. **Quais são os riscos técnicos?**
-12. **Como reverter se der errado?**
-13. **Quais dependências são criadas?**
-14. **Como isso afeta outros sistemas?**
+#### **🔧 Complexidade e Manutenibilidade**
+5. **Qual é a complexidade adicionada ao sistema?**
+6. **A equipe consegue manter essa solução?**
 
-#### **Operação e Monitoramento**
-15. **Como monitorar o sucesso?**
-16. **Quais métricas de performance?**
-17. **Como debuggar problemas?**
-18. **Qual é o impacto operacional?**
+#### **🏆 Qualidade e Confiabilidade**
+7. **Como garantir a qualidade da solução?**
+8. **Quais são os pontos de falha críticos?**
 
-#### **Equipe e Conhecimento**
-19. **A equipe tem conhecimento necessário?**
-20. **Qual é o impacto no onboarding?**
-21. **Documentação necessária?**
-22. **Treinamento requerido?**
+#### **🔒 Segurança e Proteção**
+9. **Quais são os riscos de segurança introduzidos?**
+10. **Como proteger dados sensíveis e privacidade dos usuários?**
+
+#### **👤 Usabilidade e Experiência**
+11. **Como isso impacta a experiência do usuário?**
+12. **A solução é intuitiva e acessível?**
+
+#### **🚀 Implementação e Riscos**
+13. **Qual é o esforço real de implementação?**
+14. **Como reverter se não funcionar como esperado?**
 
 ### Critérios de Avaliação
 
 | Critério | Peso | Descrição |
 |----------|------|-----------|
-| **Performance** | Alto | Impacto na velocidade e escalabilidade |
-| **Manutenibilidade** | Alto | Facilidade de modificação e evolução |
-| **Segurança** | Alto | Proteção de dados e compliance |
-| **Usabilidade** | Alto | Experiência do usuário final |
-| **Custo** | Médio | Recursos financeiros e humanos |
-| **Inovação** | Médio | Vantagem competitiva |
-| **Compliance** | Alto | Aderência a regulamentações |
+| **💰 Custo** | Alto | Recursos financeiros e de desenvolvimento |
+| **📈 Escalabilidade** | Alto | Capacidade de crescimento e performance |
+| **⚡ Latência** | Alto | Impacto no tempo de resposta |
+| **🔧 Complexidade** | Alto | Simplicidade de implementação e manutenção |
+| **🏆 Qualidade** | Alto | Confiabilidade e robustez da solução |
+| **🔒 Segurança** | Alto | Proteção de dados e conformidade |
+| **👤 Usabilidade** | Alto | Experiência e acessibilidade do usuário |
 
 ## Governança Arquitetural
 

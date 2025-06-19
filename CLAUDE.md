@@ -112,44 +112,40 @@ Primeiro AI Agent que servirá como template para outros projetos de agentes. O 
 Para **toda decisão arquitetural ou tecnológica**, seguir o processo:
 
 #### 1. **Questionário do Arquiteto** 🏗️
-Antes de qualquer decisão, responder às **22 perguntas estruturadas**:
+Antes de qualquer decisão, responder às **14 perguntas essenciais**:
 
-**Contexto e Motivação:**
-- Qual problema estamos resolvendo?
-- Por que agora? Qual é a urgência?
-- Quais são as limitações atuais?
-- Que métricas demonstram o problema?
+**💰 Custo e Viabilidade:**
+- Qual é o custo de implementação vs benefício?
+- Há alternativas mais simples que resolvem 80% do problema?
 
-**Análise de Soluções:**
-- Quais alternativas foram consideradas?
-- Qual é o critério de decisão principal?
-- Quais são os trade-offs de cada opção?
-- Como isso afeta a performance?
-- Qual é o impacto na manutenibilidade?
+**⚡ Performance e Escalabilidade:**
+- Como isso afeta a latência e throughput?
+- A solução escala com o crescimento esperado?
 
-**Implementação e Riscos:**
-- Qual é o esforço de implementação?
-- Quais são os riscos técnicos?
-- Como reverter se der errado?
-- Quais dependências são criadas?
-- Como isso afeta outros sistemas?
+**🔧 Complexidade e Manutenibilidade:**
+- Qual é a complexidade adicionada ao sistema?
+- A equipe consegue manter essa solução?
 
-**Operação e Monitoramento:**
-- Como monitorar o sucesso?
-- Quais métricas de performance?
-- Como debuggar problemas?
-- Qual é o impacto operacional?
+**🏆 Qualidade e Confiabilidade:**
+- Como garantir a qualidade da solução?
+- Quais são os pontos de falha críticos?
 
-**Equipe e Conhecimento:**
-- A equipe tem conhecimento necessário?
-- Qual é o impacto no onboarding?
-- Documentação necessária?
-- Treinamento requerido?
+**🔒 Segurança e Proteção:**
+- Quais são os riscos de segurança introduzidos?
+- Como proteger dados sensíveis e privacidade dos usuários?
+
+**👤 Usabilidade e Experiência:**
+- Como isso impacta a experiência do usuário?
+- A solução é intuitiva e acessível?
+
+**🚀 Implementação e Riscos:**
+- Qual é o esforço real de implementação?
+- Como reverter se não funcionar como esperado?
 
 #### 2. **Análise Colaborativa**
 - Discussão das respostas com stakeholders
-- Avaliação de critérios: Performance, Manutenibilidade, Segurança, Custo
-- Matriz de decisão com scores quantificados
+- Avaliação de critérios: **Custo, Escalabilidade, Latência, Complexidade, Qualidade, Segurança, Usabilidade**
+- Matriz de decisão simplificada (1-5 pontos por critério)
 
 #### 3. **Documentação ADR**
 - Usar template em `docs/templates/adr-template.md`
@@ -231,12 +227,25 @@ kwanza-agent/
 - `python management/scripts/time-report.py --daily` - Relatório diário
 - `python management/scripts/time-report.py --daily 2025-06-19` - Relatório de data específica
 
-## Integração Linear
+## Integrações
+
+### GitHub
+
+Este projeto está integrado com GitHub via MCP:
+
+- **Repositório**: <https://github.com/tiagonpsilva/kwanza-agent>
+- **MCP GitHub**: Configurado localmente para automação
+- **Branch Principal**: `main`
+- **Proteção de Branch**: Pull Requests obrigatórios
+- **CI/CD**: GitHub Actions (a ser configurado)
+
+### Linear
 
 Este projeto está sincronizado com o Linear:
 
 - **Linear API Key**: Configurada como variável de ambiente
 - **Projeto Linear**: Kwanza Agent (84a69457-db97-4e17-80a7-6f8e5ccd24b9)
+- **MCP Linear**: Integração para gestão de tasks
 - **Estado**: Backlog
 
 ## Fluxo de Desenvolvimento
