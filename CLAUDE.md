@@ -2,6 +2,19 @@
 
 Primeiro AI Agent que servirá como template para outros projetos de agentes. O objetivo do agente será listar as principais notícias públicas de tecnologia, permitindo que o usuário as favorite e/ou classifique.
 
+## 🚨 REGRAS CRÍTICAS E INVIOLÁVEIS - LEIA PRIMEIRO 🚨
+
+### ❌ PROIBIÇÃO ABSOLUTA: MARCAR TASKS COMO "DONE" SEM APROVAÇÃO ❌
+
+**🛑 REGRA NÚMERO 1 (INVIOLÁVEL): SOMENTE O PRODUCT OWNER (TIAGO) PODE APROVAR TASKS 🛑**
+
+- ❌ **NUNCA marque uma task como "Done" sem aprovação explícita**
+- ✅ **Máximo permitido: "In Review" (aguardando aprovação)**  
+- ⚠️ **Violação desta regra = ERRO CRÍTICO**
+- 📋 **Sempre documente TUDO na task antes de mover para "In Review"**
+
+**Esta regra está repetida detalhadamente na seção "Processo de Validação de Tasks" abaixo.**
+
 ## Funcionalidades
 
 - Landing Page + Login com Celular e Google
@@ -200,11 +213,15 @@ Antes de qualquer decisão, responder às **14 perguntas essenciais**:
   - Processo de validação estruturado
   - Métricas de qualidade
 
-### Processo de Validação de Tasks
+### 🚨 PROCESSO DE VALIDAÇÃO DE TASKS - REGRAS OBRIGATÓRIAS
 
-**⚠️ REGRA CRÍTICA: APROVAÇÃO OBRIGATÓRIA**
+**🛑 REGRA CRÍTICA E INVIOLÁVEL: APROVAÇÃO OBRIGATÓRIA 🛑**
 
-**Nenhuma task pode ser marcada como "Done" sem aprovação explícita do Product Owner (Tiago).**
+**❌ PROIBIDO ABSOLUTAMENTE: MARCAR QUALQUER TASK COMO "DONE" SEM APROVAÇÃO EXPLÍCITA ❌**
+
+**✅ SOMENTE O PRODUCT OWNER (TIAGO) PODE APROVAR E MOVER TASKS PARA "DONE"**
+
+**⚠️ ESTA É UMA REGRA INVIOLÁVEL - QUALQUER VIOLAÇÃO SERÁ CONSIDERADA ERRO CRÍTICO ⚠️**
 
 #### Fluxo de Estados Obrigatório
 1. **Backlog** → Planejada e priorizada
@@ -218,17 +235,63 @@ Antes de qualquer decisão, responder às **14 perguntas essenciais**:
 - **Documentação atualizada** (se aplicável)
 - **Commit realizado** com mensagem estruturada
 - **Demo/evidência** preparada para apresentação
+- **⚠️ CRÍTICO: Comentários detalhados** registrados na task do Linear incluindo:
+  - ✅ **O que foi implementado** (lista detalhada de arquivos/funcionalidades)
+  - 🧪 **Como validar/testar** (comandos específicos, passos de validação)
+  - 📸 **Evidências** (screenshots, outputs de comandos, links)
+  - 🔍 **Pontos de atenção** (configurações necessárias, dependências)
 
 #### Critérios para "Done" (Somente após aprovação)
+
 - **Aprovação explícita** do Product Owner
 - **Validação funcional** confirmada
 - **Qualidade aprovada** (code review, testes, documentação)
 - **Integração validada** com outras partes do sistema
 
 #### Responsabilidades
-- **Claude/Desenvolvedor**: Implementar até "In Review", aguardar aprovação
-- **Product Owner (Tiago)**: Aprovar e mover para "Done"
+
+- **Claude/Desenvolvedor**:
+  - Implementar até "In Review"
+  - **Documentar TUDO nos comentários da task** (implementação + validação)
+  - Aguardar aprovação
+- **Product Owner (Tiago)**:
+  - Revisar comentários detalhados da task
+  - Executar validações propostas
+  - **Solicitar mudanças** (se necessário) via comentários na task
+  - Aprovar e mover para "Done"
+- **Claude/Desenvolvedor** (durante review):
+  - **Registrar TODAS as observações** do Product Owner como comentários na task
+  - Implementar mudanças solicitadas
+  - **Atualizar status da task** conforme feedback recebido
+  - Aguardar nova aprovação após ajustes
 - **Sugestões de próximas tasks**: Somente após aprovação de tasks em review
+
+#### Processo de Feedback Durante Review
+
+**Quando o Product Owner solicita mudanças:**
+
+1. **📝 Registrar Observação**: Adicionar comentário na task com:
+   ```
+   ## 🔄 Feedback do Product Owner - [Data/Hora]
+   
+   ### 📋 Observações solicitadas:
+   - [Observação 1 do PO]
+   - [Observação 2 do PO]
+   
+   ### ✅ Ações implementadas:
+   - [ ] [Ação corretiva 1]
+   - [ ] [Ação corretiva 2]
+   
+   **Status:** 🔄 Implementando feedback
+   ```
+
+2. **🔧 Implementar Mudanças**: Aplicar correções solicitadas
+
+3. **📸 Documentar Ajustes**: Atualizar comentário com evidências das correções
+
+4. **🔄 Aguardar Nova Revisão**: Manter task em "In Review" até nova aprovação
+
+**Objetivo:** Garantir rastreabilidade completa do processo de feedback e correções.
 
 ### Roadmap e Planejamento
 
@@ -244,6 +307,239 @@ Antes de qualquer decisão, responder às **14 perguntas essenciais**:
 - **Análise Semanal**: Usar `management/scripts/weekly-analysis.sh` para relatórios
 - **Relatórios Detalhados**: Usar `management/scripts/time-report.py` para análises avançadas
 - **Metas de Distribuição Frontend-First**: 40-50% UX/DEV Frontend, 20-30% DEV Backend, 15-20% DOCS, 10-15% TEST
+
+## 🔗 Integração Git + Linear - Versionamento e Rastreabilidade
+
+### 📋 **Vinculação Tasks ↔ Código**
+
+**OBRIGATÓRIO: Toda modificação de código deve estar vinculada a uma task do Linear**
+
+#### **1. Mensagens de Commit**
+
+**Formato padrão obrigatório:**
+```
+<type>(linear-id): <description>
+
+- <detailed change 1>
+- <detailed change 2>
+
+Linear-Task: <LINEAR_ID>
+Co-authored-by: Claude <noreply@anthropic.com>
+```
+
+**Exemplos:**
+```bash
+feat(PRO-15): implement atomic design system
+
+- Add Typography atoms (H1-H4, P, Small, Lead, Code)
+- Add Icon system with Kwanza variants
+- Add Logo component with size variants
+- Create FormField molecules with validation
+- Implement NewsCard components (full and compact)
+
+Linear-Task: PRO-15
+Co-authored-by: Claude <noreply@anthropic.com>
+```
+
+```bash
+fix(PRO-22): resolve TypeScript navigation errors
+
+- Fix navigateTo hook typing to accept string | RoutePath
+- Remove unused imports in error pages
+- Update breadcrumbs integration in templates
+
+Linear-Task: PRO-22
+Co-authored-by: Claude <noreply@anthropic.com>
+```
+
+#### **2. Types de Commit (Conventional Commits)**
+
+- **feat**: Nova funcionalidade
+- **fix**: Correção de bug
+- **docs**: Documentação
+- **style**: Formatação (sem mudança funcional)
+- **refactor**: Refatoração de código
+- **test**: Adição/modificação de testes
+- **chore**: Tarefas de manutenção
+- **perf**: Melhorias de performance
+- **ci**: Mudanças no CI/CD
+- **build**: Mudanças no sistema de build
+
+#### **3. Branch Naming Convention**
+
+**Formato:** `<type>/<linear-id>-<description>`
+
+**Exemplos:**
+```bash
+feature/PRO-15-atomic-design-system
+feature/PRO-22-navigation-routing
+fix/PRO-22-typescript-errors
+docs/PRO-15-component-documentation
+```
+
+### 🚀 **Push Automático Após Aprovação**
+
+**REGRA OBRIGATÓRIA: Toda task aprovada deve ser enviada para o repositório remoto**
+
+#### **Processo de Push Pós-Aprovação:**
+
+1. **Task aprovada pelo PO** → Movida para "Done"
+2. **Commit final** com mensagem padronizada
+3. **Push imediato** para branch remota
+4. **Comentário na task** com link do commit
+
+**Comandos automáticos após aprovação:**
+```bash
+# 1. Commit final (se houver mudanças pendentes)
+git add .
+git commit -m "feat(PRO-XX): finalize implementation
+
+- Final adjustments and documentation
+- Ready for integration
+
+Linear-Task: PRO-XX
+Co-authored-by: Claude <noreply@anthropic.com>"
+
+# 2. Push para remote
+git push origin feature/PRO-XX-description
+
+# 3. Atualizar comentário na task com link do commit
+```
+
+#### **Comentário Automático na Task:**
+```markdown
+## ✅ TASK FINALIZADA E ENVIADA PARA REPOSITÓRIO
+
+### 🔗 **Links de Rastreabilidade:**
+- **Branch**: `feature/PRO-XX-description`
+- **Commits**: [Ver histórico no GitHub](link-para-commits)
+- **Últimas mudanças**: [Commit específico](link-commit)
+
+### 📊 **Resumo Técnico:**
+- **Arquivos modificados**: X arquivos
+- **Linhas adicionadas**: +XXX
+- **Linhas removidas**: -XX
+- **Componentes criados**: X
+
+**🔄 STATUS**: Código sincronizado com repositório remoto, pronto para integração
+```
+
+### 🏷️ **Semantic Versioning e Tags**
+
+#### **Estratégia de Versionamento:**
+
+**Formato:** `vMAJOR.MINOR.PATCH`
+
+- **MAJOR**: Breaking changes (incompatibilidade com versão anterior)
+- **MINOR**: Novas funcionalidades (compatível com versão anterior)  
+- **PATCH**: Bug fixes (compatível com versão anterior)
+
+#### **Processo de Tagging:**
+
+**1. Preparação para Release:**
+```bash
+# Merge de feature branches para main
+git checkout main
+git merge feature/PRO-15-atomic-design-system
+git merge feature/PRO-22-navigation-routing
+```
+
+**2. Criação de Tag:**
+```bash
+# Após merge de múltiplas features
+git tag -a v0.1.0 -m "Release v0.1.0: Foundation Frontend Complete
+
+Features implemented:
+- PRO-15: Atomic Design System (components + templates)
+- PRO-22: Navigation and Routing (React Router + breadcrumbs)
+
+Breaking Changes: None
+New Features: Complete frontend foundation
+Bug Fixes: TypeScript errors, lint warnings
+
+Linear-Tasks: PRO-15, PRO-22"
+
+# Push da tag
+git push origin v0.1.0
+```
+
+**3. Release Notes:**
+```markdown
+# Release v0.1.0 - Foundation Frontend Complete
+
+## 🚀 New Features
+- **PRO-15**: Complete Atomic Design System
+  - 15+ reusable components (Atoms, Molecules, Organisms, Templates)
+  - Functional wireframes for all main screens
+- **PRO-22**: Navigation and Routing
+  - React Router v6 with typed navigation
+  - Dynamic breadcrumbs and error pages
+
+## 🛠️ Technical Improvements
+- TypeScript strict mode compliance
+- Responsive design (mobile-first)
+- Shadcn/UI integration
+- Build optimization (458KB bundle)
+
+## 📊 Metrics
+- **Components**: 15+ created
+- **Pages**: 7 functional pages
+- **Bundle Size**: 458KB (142KB gzipped)
+- **TypeScript**: 100% typed
+
+## 🔗 Linear Tasks
+- [PRO-15](link-linear): Sistema de design components
+- [PRO-22](link-linear): Navegação e roteamento
+```
+
+#### **Estratégia de Releases:**
+
+- **v0.x.x**: Development/Beta releases
+- **v1.0.0**: First production release
+- **v1.x.x**: Feature releases
+- **v2.0.0**: Major architectural changes
+
+#### **Critérios para Versões:**
+
+**v0.1.0**: Foundation Frontend (PRO-10 → PRO-22)
+**v0.2.0**: Core Features (Auth, API integration)
+**v0.3.0**: Business Logic (News, Favorites, Classification)
+**v1.0.0**: MVP Complete (All core features working)
+
+### 🔄 **Workflow Completo Git + Linear**
+
+#### **Fluxo por Task:**
+
+1. **📋 Task criada no Linear** → Status "Backlog"
+2. **🌿 Criar branch** → `feature/PRO-XX-description`
+3. **⚙️ Desenvolver** → Commits com convenção padrão
+4. **🔄 Task para "In Review"** → Documentar tudo na task
+5. **✅ Aprovação do PO** → Task para "Done"
+6. **🚀 Push automático** → Enviar para remote
+7. **🔗 Atualizar task** → Link para commits no GitHub
+
+#### **Fluxo de Release:**
+
+1. **🎯 Milestone completado** (ex: Foundation Frontend)
+2. **🔀 Merge branches** → Para main
+3. **🏷️ Criar tag** → Semantic version
+4. **📝 Release notes** → Documentar mudanças
+5. **🚀 Deploy** → Ambiente de produção (futuro)
+
+### 📊 **Rastreabilidade Completa**
+
+**Cada linha de código deve ser rastreável até:**
+- ✅ **Task do Linear** (WHY)
+- ✅ **Commit específico** (WHAT)
+- ✅ **Developer** (WHO)
+- ✅ **Timestamp** (WHEN)
+- ✅ **Pull Request** (HOW - futuro)
+
+**Benefícios:**
+- **Auditoria completa** de mudanças
+- **Rollback preciso** se necessário
+- **Documentação automática** via commits
+- **Planejamento baseado** em dados históricos
 
 ## Estrutura do Projeto
 
