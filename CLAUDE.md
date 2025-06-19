@@ -202,11 +202,33 @@ Antes de qualquer decisão, responder às **14 perguntas essenciais**:
 
 ### Processo de Validação de Tasks
 
-- **Definition of Ready (DoR)**: Checklist obrigatório antes de iniciar development
-- **Definition of Done (DoD)**: Checklist obrigatório para considerar task finalizada
-- **Aprovação por Stakeholders**: Product Owner (US) / Tech Lead (EN)
-- **Code Review**: Obrigatório para todo código (mínimo 1 reviewer)
-- **Testes**: Cobertura mínima 80% para código crítico
+**⚠️ REGRA CRÍTICA: APROVAÇÃO OBRIGATÓRIA**
+
+**Nenhuma task pode ser marcada como "Done" sem aprovação explícita do Product Owner (Tiago).**
+
+#### Fluxo de Estados Obrigatório
+1. **Backlog** → Planejada e priorizada
+2. **In Progress** → Em desenvolvimento 
+3. **In Review** → ⚠️ **PARADA OBRIGATÓRIA** - Aguardando aprovação
+4. **Done** → ✅ Somente após aprovação explícita
+
+#### Critérios para "In Review"
+- **Definition of Done (DoD)** 100% atendida
+- **Código implementado** e testado conforme especificação
+- **Documentação atualizada** (se aplicável)
+- **Commit realizado** com mensagem estruturada
+- **Demo/evidência** preparada para apresentação
+
+#### Critérios para "Done" (Somente após aprovação)
+- **Aprovação explícita** do Product Owner
+- **Validação funcional** confirmada
+- **Qualidade aprovada** (code review, testes, documentação)
+- **Integração validada** com outras partes do sistema
+
+#### Responsabilidades
+- **Claude/Desenvolvedor**: Implementar até "In Review", aguardar aprovação
+- **Product Owner (Tiago)**: Aprovar e mover para "Done"
+- **Sugestões de próximas tasks**: Somente após aprovação de tasks em review
 
 ### Roadmap e Planejamento
 
