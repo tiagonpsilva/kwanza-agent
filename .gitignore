@@ -1,0 +1,190 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Frontend (React/Node.js)
+frontend/node_modules/
+frontend/.npm
+frontend/.eslintcache
+frontend/build/
+frontend/dist/
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+frontend/coverage/
+frontend/storybook-static/
+
+# Backend (Python)
+backend/__pycache__/
+backend/*.py[cod]
+backend/*$py.class
+backend/*.so
+backend/.Python
+backend/build/
+backend/develop-eggs/
+backend/dist/
+backend/downloads/
+backend/eggs/
+backend/.eggs/
+backend/lib/
+backend/lib64/
+backend/parts/
+backend/sdist/
+backend/var/
+backend/wheels/
+backend/*.egg-info/
+backend/.installed.cfg
+backend/*.egg
+backend/MANIFEST
+backend/.env
+backend/.venv
+backend/env/
+backend/venv/
+backend/ENV/
+backend/env.bak/
+backend/venv.bak/
+backend/.pytest_cache/
+backend/coverage.xml
+backend/*.cover
+backend/.hypothesis/
+
+# AI and ML
+ai/models/
+ai/checkpoints/
+ai/datasets/
+ai/.cache/
+ai/wandb/
+*.pkl
+*.joblib
+
+# Databases
+*.db
+*.sqlite3
+*.dump
+postgresql_data/
+mongodb_data/
+chromadb_data/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# API Keys and Secrets
+*.key
+*.pem
+secrets.yaml
+config/secrets/
+
+# Docker
+.docker/
+docker-compose.override.yml
+
+# Terraform
+infrastructure/terraform/.terraform/
+infrastructure/terraform/*.tfstate
+infrastructure/terraform/*.tfstate.*
+infrastructure/terraform/.terraform.lock.hcl
+infrastructure/terraform/crash.log
+
+# Kubernetes
+infrastructure/kubernetes/secrets/
+
+# Monitoring and Logs
+monitoring/
+*.log
+logs/
+
+# Backup files
+*.bak
+*.backup
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# Poetry
+poetry.lock
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# Cypress
+frontend/cypress/videos/
+frontend/cypress/screenshots/
+
+# Storybook
+frontend/storybook-static/
+
+# Bundle analyzer
+frontend/build/static/js/*.js.map
+
+# Local development
+.local/
+local/
+
+# AI Cost Tracking (keep structure, ignore sensitive data)
+management/ai-cost-tracking-local.md
+management/cost-reports/
+
+# Time tracking local files
+management/time-tracking-local.md
