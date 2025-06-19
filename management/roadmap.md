@@ -10,146 +10,191 @@ Criar um agente conversacional que permita aos usuários listar, favoritar e cla
 
 ---
 
-## Fases do Projeto
+## Fases do Projeto (Abordagem Frontend-First)
 
-### 🏗️ **Fase 1: Estrutura e Fundação** (Semanas 1-2)
+### 🎨 **Fase 1: UX/UI Foundation** (Semanas 1-3)
 
 #### 1.1 Configuração Inicial
 - [x] Repositório Git configurado
 - [x] Integração Linear + GitHub
 - [x] Documentação inicial (CLAUDE.md)
 - [ ] Estrutura de diretórios do projeto
-- [ ] Configuração de ambientes (dev/prod)
+- [ ] **Configuração React.js + TailwindCSS**
+- [ ] **Configuração Shadcn/UI**
+- [ ] **Setup de temas (claro/escuro)**
 
-#### 1.2 Arquitetura Base
+#### 1.2 Design System & Prototipagem
 
-- [ ] Definição da arquitetura detalhada
-- [ ] **Architecture Haiku** da solução
-- [ ] **Diagrama C4 Model** (PlantUML) - Visão macro
-- [ ] **ADR inicial** - Decisões de arquitetura fundamentais
-- [ ] Configuração do FastAPI (backend)
-- [ ] Configuração do React.js (frontend)
-- [ ] Configuração do banco de dados (PostgreSQL)
-- [ ] Configuração do Redis (cache/sessões)
+- [ ] **Design System** completo (cores, tipografia, componentes)
+- [ ] **Wireframes** de todas as telas principais
+- [ ] **Protótipo navegável** (Figma/FigJam)
+- [ ] **User Journey Mapping**
+- [ ] **Architecture Haiku** da solução (`docs/architecture/`)
+- [ ] **Diagrama C4 Model** (PlantUML) em `docs/architecture/diagrams/`
 
-#### 1.3 Infraestrutura
+#### 1.3 Componentes Base
 
-- [ ] Docker containers para desenvolvimento
-- [ ] Docker Compose para orquestração
-- [ ] Configuração de variáveis de ambiente
-- [ ] Scripts de inicialização do projeto
-- [ ] **Diretório de documentação de testes**
+- [ ] Sistema de componentes reutilizáveis
+- [ ] Layout responsivo (Mobile First)
+- [ ] Navegação e roteamento
+- [ ] Estados de loading e erro
 - [ ] **Configuração Cypress** para testes E2E
+- [ ] **Storybook** para documentação de componentes
 
-### 🔐 **Fase 2: Autenticação e Base** (Semanas 3-4)
+### 🚀 **Fase 2: Landing Page & Interface Principal** (Semanas 4-5)
 
 #### 2.1 Landing Page
 
-- [ ] **User Story** com diagramas de sequência
-- [ ] Design e layout responsivo
-- [ ] Implementação com React + TailwindCSS
-- [ ] Integração Shadcn/UI
-- [ ] Tema claro/escuro
+- [ ] **User Story** com diagramas de sequência (`docs/architecture/diagrams/`)
+- [ ] Design e implementação da landing page
+- [ ] Animações e micro-interactions
+- [ ] SEO e meta tags
 - [ ] Rodapé com créditos
 - [ ] **Testes Cypress** para fluxos principais
 
-#### 2.2 Sistema de Autenticação
-- [ ] Login com número de celular
-- [ ] Login com Google OAuth
+#### 2.2 Interface de Autenticação (Mock)
+
+- [ ] Telas de login/registro (design)
+- [ ] **Mock de autenticação** (local storage)
+- [ ] Fluxo de onboarding
+- [ ] Estados de validação de formulários
+- [ ] Feedback visual de erro/sucesso
+
+#### 2.3 Layout Principal da Aplicação
+
+- [ ] Dashboard/Home layout
+- [ ] Sidebar/Menu de navegação
+- [ ] Header com perfil do usuário
+- [ ] Área principal de conteúdo
+- [ ] Footer responsivo
+
+### 💬 **Fase 3: Interface Conversacional** (Semanas 6-7)
+
+#### 3.1 Chat Interface (Frontend)
+
+- [ ] **Design do chat** (modelo ChatGPT)
+- [ ] Componente de mensagens
+- [ ] Input de texto com formatação
+- [ ] **Sistema de sugestões** de ações
+- [ ] Histórico de conversas (mock)
+- [ ] Indicadores de digitação/carregamento
+
+#### 3.2 Sistema de Notícias (Frontend)
+
+- [ ] **Lista de notícias** (componentes)
+- [ ] **Cards de notícias** responsivos
+- [ ] **Sistema de favoritos** (UI apenas)
+- [ ] **Sistema de classificação** (stars/rating)
+- [ ] Filtros e busca (interface)
+- [ ] Paginação e scroll infinito
+
+#### 3.3 Painéis e Configurações (Frontend)
+
+- [ ] **Painel de configurações** (UI)
+- [ ] **Painel de operações** (dashboard)
+- [ ] **Seleção de modelo LLM** (interface)
+- [ ] Preferências de notícias
+- [ ] Gestão de perfil do usuário
+
+### 🧪 **Fase 4: Validação UX & Testes Frontend** (Semana 8)
+
+#### 4.1 Testes de Usabilidade
+
+- [ ] **Testes com usuários** (5-7 pessoas)
+- [ ] **Análise de UX** e pontos de melhoria
+- [ ] **Otimização de fluxos** baseada em feedback
+- [ ] **Documentação de insights** de UX
+
+#### 4.2 Testes Automatizados Frontend
+
+- [ ] **Testes Cypress E2E** completos
+- [ ] **Testes de componentes** (React Testing Library)
+- [ ] **Testes de acessibilidade** (a11y)
+- [ ] **Testes de performance** frontend
+- [ ] **Testes em diferentes dispositivos**
+
+#### 4.3 Refinamento e Polimento
+
+- [ ] **Otimização de performance** (bundle size, lazy loading)
+- [ ] **Melhorias de acessibilidade**
+- [ ] **Animações finais** e micro-interactions
+- [ ] **Progressive Web App** (PWA) features
+
+### ⚙️ **Fase 5: Arquitetura Backend** (Semanas 9-10)
+
+#### 5.1 Infraestrutura Base
+
+- [ ] **ADR** para decisões de arquitetura (`docs/architecture/decisions/`)
+- [ ] Configuração do FastAPI (backend)
+- [ ] Configuração do PostgreSQL (dados relacionais)
+- [ ] Configuração do MongoDB (classificações de notícias)
+- [ ] Configuração do Redis (cache/sessões)
+- [ ] **Docker containers** para desenvolvimento
+
+#### 5.2 APIs Base
+
+- [ ] Sistema de autenticação (JWT)
+- [ ] APIs de usuário e perfil
 - [ ] Middleware de autenticação
-- [ ] Gestão de sessões com Redis
-- [ ] Proteção de rotas
+- [ ] Gestão de sessões
+- [ ] APIs de configuração
 
-#### 2.3 Interface Base
-- [ ] Layout principal da aplicação
-- [ ] Navegação responsiva
-- [ ] Componentes base reutilizáveis
-- [ ] Sistema de temas
+#### 5.3 Integração Frontend-Backend
 
-### 🤖 **Fase 3: Core do Agente** (Semanas 5-7)
+- [ ] **Conectar autenticação** real
+- [ ] **APIs de configurações** do usuário
+- [ ] **Persistência** de preferências
+- [ ] **Gestão de estado** (Redux/Zustand)
 
-#### 3.1 Configuração LLM
+### 🤖 **Fase 6: IA & Core Features** (Semanas 11-12)
+
+#### 6.1 Configuração LLM
+
 - [ ] Integração com LlamaIndex
-- [ ] Configuração de modelos intercambiáveis
+- [ ] Configuração de APIs externas (OpenAI/Anthropic)
+- [ ] **Configuração Ollama** para modelos locais
 - [ ] Sistema de tokens e limites
-- [ ] Fallback entre modelos
+- [ ] Fallback entre modelos (API → Ollama)
 
-#### 3.2 Interface Conversacional
-- [ ] Chat interface (modelo ChatGPT)
-- [ ] Sistema de sugestões de ações
-- [ ] Histórico de conversas
-- [ ] Indicadores de carregamento
+#### 6.2 Sistema de Notícias
 
-#### 3.3 Sistema de Memória
-- [ ] Short-term memory com Redis
-- [ ] Long-term memory com ChromaDB
-- [ ] Contexto de conversação
-- [ ] Persistência de preferências
-
-### 📰 **Fase 4: Funcionalidades Notícias** (Semanas 8-10)
-
-#### 4.1 Coleta de Notícias
 - [ ] Integração com APIs de notícias
 - [ ] Web scraping de fontes confiáveis
-- [ ] Sistema de categorização automática
+- [ ] **Sistema de favoritos** (MongoDB)
+- [ ] **Sistema de classificação/rating** (MongoDB)
 - [ ] Filtros por período (dia/semana/mês)
 
-#### 4.2 Gerenciamento de Notícias
-- [ ] Listar 10 notícias principais
-- [ ] Sistema de favoritos
-- [ ] Sistema de classificação/rating
-- [ ] Filtros e busca avançada
+#### 6.3 Base de Conhecimento (RAG)
 
-#### 4.3 Base de Conhecimento (RAG)
-- [ ] Vetorização de notícias
-- [ ] Busca semântica
+- [ ] Configuração do ChromaDB (vector database para RAG)
+- [ ] **Vetorização de notícias com ChromaDB**
+- [ ] **Embeddings usando Ollama** (local) ou APIs
+- [ ] Busca semântica por similaridade
 - [ ] Contextualização de respostas
-- [ ] Atualização contínua da base
 
-### 🔧 **Fase 5: Funcionalidades Avançadas** (Semanas 11-12)
+### 🚀 **Fase 7: Deploy & Monitoramento** (Semanas 13-14)
 
-#### 5.1 Painel de Configurações
-- [ ] Seleção de modelo LLM
-- [ ] Configuração de tokens API
-- [ ] Preferências de notícias
-- [ ] Configurações de privacidade
+#### 7.1 Testes Finais
 
-#### 5.2 Painel de Operações
-- [ ] FinOPS - Gestão de custos
-- [ ] Monitoramento de performance
-- [ ] Logs de auditoria
-- [ ] Métricas de uso
-
-#### 5.3 CLI-like Experience
-- [ ] Comandos via chat
-- [ ] Autocomplete de comandos
-- [ ] Ajuda contextual
-- [ ] Shortcuts de teclado
-
-### 📊 **Fase 6: Qualidade e Deploy** (Semanas 13-14)
-
-#### 6.1 Testes e Qualidade
-
+- [ ] **Testes de integração** completos
+- [ ] **Testes de performance** (backend)
+- [ ] **Testes de carga**
 - [ ] **Documentação completa** dos casos de teste
-- [ ] Testes unitários (backend) - Cobertura 80%+
-- [ ] Testes de componentes (frontend) - Cobertura 80%+
-- [ ] Testes de integração
-- [ ] **Testes Cypress E2E** - Fluxos críticos
-- [ ] Testes de performance
-- [ ] Linting e formatação
-- [ ] **Relatórios de cobertura** automatizados
 
-#### 6.2 Segurança
+#### 7.2 Segurança & Deploy
+
 - [ ] Implementação OWASP
 - [ ] Sanitização de inputs
 - [ ] Rate limiting
-- [ ] Auditoria de segurança
-
-#### 6.3 Deploy e Monitoramento
 - [ ] Configuração de produção
 - [ ] CI/CD pipeline
+
+#### 7.3 Monitoramento
+
 - [ ] Monitoramento de logs
 - [ ] Alertas e notificações
+- [ ] FinOPS - Gestão de custos
+- [ ] Métricas de uso
 - [ ] Backup e recuperação
 
 ---
@@ -166,16 +211,19 @@ Criar um agente conversacional que permita aos usuários listar, favoritar e cla
 - **Cypress** para testes E2E
 
 ### Backend
+
 - **Python** + **FastAPI** + **Pydantic**
 - **PostgreSQL** para dados relacionais
+- **MongoDB** para classificações de notícias
 - **Redis** para cache e sessões
-- **Alembic** para migrações
+- **Alembic** para migrações PostgreSQL
 
 ### IA/ML
+
 - **LlamaIndex** como framework principal
-- **ChromaDB** para vetorização
-- **OpenAI/Anthropic** APIs
-- **Hugging Face** para modelos locais
+- **ChromaDB** para RAG e embeddings
+- **OpenAI/Anthropic** APIs externas
+- **Ollama** para modelos locais (llama2, mistral, etc.)
 
 ### DevOps
 
@@ -186,23 +234,26 @@ Criar um agente conversacional que permita aos usuários listar, favoritar e cla
 
 ### Documentação
 
-- **PlantUML** para diagramas C4 Model
-- **ADR** para decisões de arquitetura
-- **Architecture Haiku** para visão poética da solução
+- **PlantUML** para diagramas C4 Model (`docs/architecture/diagrams/`)
+- **ADR** para decisões de arquitetura (`docs/architecture/decisions/`)
+- **Architecture Haiku** para visão poética da solução (`docs/architecture/`)
+- **OpenAPI/Swagger** para especificações de API (`docs/architecture/specifications/`)
+- **Padrões** de desenvolvimento (`docs/architecture/patterns/`)
 - **Markdown** para documentação técnica
 
 ---
 
-## Marcos Principais
+## Marcos Principais (Frontend-First)
 
 | Marco | Descrição | Prazo |
 |-------|-----------|-------|
-| 🏗️ **M1** | Estrutura base funcional | Semana 2 |
-| 🔐 **M2** | Autenticação e UI base | Semana 4 |
-| 🤖 **M3** | Agente conversacional básico | Semana 7 |
-| 📰 **M4** | Funcionalidades de notícias | Semana 10 |
-| 🔧 **M5** | Painéis de configuração | Semana 12 |
-| 🚀 **M6** | Deploy em produção | Semana 14 |
+| 🎨 **M1** | Design System e Componentes Base | Semana 3 |
+| 🚀 **M2** | Landing Page e Interface Principal | Semana 5 |
+| 💬 **M3** | Interface Conversacional Completa | Semana 7 |
+| 🧪 **M4** | UX Validada e Frontend Testado | Semana 8 |
+| ⚙️ **M5** | Backend Integrado | Semana 10 |
+| 🤖 **M6** | IA e Funcionalidades Core | Semana 12 |
+| 🚀 **M7** | Deploy em Produção | Semana 14 |
 
 ---
 
@@ -223,17 +274,32 @@ Criar um agente conversacional que permita aos usuários listar, favoritar e cla
 
 ---
 
-## Próximos Passos Imediatos
+## Próximos Passos Imediatos (Frontend-First)
 
-1. **Criar tasks no Linear** para Fase 1.1
-2. **Gerar Architecture Haiku** da solução
-3. **Criar primeiro ADR** sobre escolhas tecnológicas
-4. **Definir estrutura de diretórios** do projeto
-5. **Configurar ambiente de desenvolvimento**
-6. **Implementar arquitetura base**
+1. **Criar tasks no Linear** para Fase 1 (UX/UI Foundation)
+2. **Configurar React.js + TailwindCSS + Shadcn/UI**
+3. **Criar Design System** e wireframes
+4. **Desenvolver protótipo navegável**
+5. **Implementar componentes base**
+6. **Configurar Storybook** para documentação
+7. **Setup Cypress** para testes E2E
 
 ---
 
 ## Histórico de Versões
 
-**Roadmap v1.1** - Última atualização: 2025-06-19
+**Roadmap v2.0** - Última atualização: 2025-06-19
+
+### Mudanças v2.0 (Frontend-First Approach)
+- **Reestruturação completa**: Priorização UX/Frontend antes Backend
+- **7 fases** com abordagem frontend-first
+- **Fase 4 dedicada**: Validação UX e testes de usabilidade
+- **Storybook**: Adicionado para documentação de componentes
+- **PWA features**: Progressive Web App na fase de polimento
+- **7 marcos principais**: Marcos atualizados para nova abordagem
+
+### Mudanças v1.2 (Tecnologias)
+- Substituição Hugging Face → Ollama para modelos locais
+- Definição ChromaDB exclusivamente para RAG
+- Adição MongoDB para classificações de notícias
+- Especificação clara de responsabilidades dos bancos

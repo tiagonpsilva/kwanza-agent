@@ -25,18 +25,21 @@ Primeiro AI Agent que servirá como template para outros projetos de agentes. O 
 
 - Front-end
 - Agent (Back-end App)
-- LLM
+- LLM (OpenAI/Anthropic APIs + Ollama local)
 - MCP - Model Context Protocol
-  - BD Relacional
-- Fluxo RAG - Vector Database
+  - PostgreSQL (dados relacionais)
+  - MongoDB (classificações de notícias)
+- Fluxo RAG - ChromaDB (Vector Database)
 
 ## Tecnologia
 
-### Front-end
+### Front-end (Prioridade)
 
-- React.js
-- Typescript
+- React.js + TypeScript
 - TailwindCSS + Shadcn/UI
+- Storybook (documentação de componentes)
+- React Testing Library + Cypress
+- PWA (Progressive Web App)
 
 ### Back-end
 
@@ -45,15 +48,26 @@ Primeiro AI Agent que servirá como template para outros projetos de agentes. O 
 ### IA
 
 - LlamaIndex - framework de desenvolvimento
-- ChromaDB - Vector Database
+- ChromaDB - Vector Database (RAG)
 - Redis - Short-term memory
+- Ollama - Modelos locais
+- OpenAI/Anthropic - APIs externas
+
+### Bancos de Dados
+
+- PostgreSQL - Dados relacionais (usuários, sessões, configurações)
+- MongoDB - Classificações de notícias (favoritos, ratings, categorias)
+- ChromaDB - Embeddings para RAG
+- Redis - Cache e sessões
 
 ## Não-Funcionais
 
 ### Configurações
 
-- Escolha de LLM a ser utilizada
-- Apontamento de token de Acesso à LLM
+- Escolha de LLM (APIs externas ou Ollama local)
+- Apontamento de tokens de acesso às APIs
+- Configuração de modelos Ollama disponíveis
+- Parâmetros de embedding para ChromaDB
 
 ### Painel de Operações
 
@@ -87,10 +101,65 @@ Primeiro AI Agent que servirá como template para outros projetos de agentes. O 
 
 ## Boas Práticas de Arquitetura
 
-- **Architecture Haiku**: Gerar e manter um haiku descritivo da solução
-- **ADR (Architecture Decision Records)**: Documentar todas as decisões de arquitetura no formato ADR
-- **C4 Model**: Gerar e manter diagramas C4 (PlantUML) com visão macro da solução
-- **Diagramas de Sequência**: Incluir diagramas de sequência nas stories a serem implementadas
+- **Architecture Haiku**: Mantido em `docs/architecture/README.md` - visão poética da solução
+- **ADR (Architecture Decision Records)**: Processo estruturado de decisões arquiteturais
+- **C4 Model**: Diagramas PlantUML em `docs/architecture/diagrams/`
+- **Especificações Técnicas**: APIs, schemas em `docs/architecture/specifications/`
+- **Padrões**: Documentar padrões em `docs/architecture/patterns/`
+
+### Processo de ADR (Architecture Decision Records)
+
+Para **toda decisão arquitetural ou tecnológica**, seguir o processo:
+
+#### 1. **Questionário do Arquiteto** 🏗️
+Antes de qualquer decisão, responder às **22 perguntas estruturadas**:
+
+**Contexto e Motivação:**
+- Qual problema estamos resolvendo?
+- Por que agora? Qual é a urgência?
+- Quais são as limitações atuais?
+- Que métricas demonstram o problema?
+
+**Análise de Soluções:**
+- Quais alternativas foram consideradas?
+- Qual é o critério de decisão principal?
+- Quais são os trade-offs de cada opção?
+- Como isso afeta a performance?
+- Qual é o impacto na manutenibilidade?
+
+**Implementação e Riscos:**
+- Qual é o esforço de implementação?
+- Quais são os riscos técnicos?
+- Como reverter se der errado?
+- Quais dependências são criadas?
+- Como isso afeta outros sistemas?
+
+**Operação e Monitoramento:**
+- Como monitorar o sucesso?
+- Quais métricas de performance?
+- Como debuggar problemas?
+- Qual é o impacto operacional?
+
+**Equipe e Conhecimento:**
+- A equipe tem conhecimento necessário?
+- Qual é o impacto no onboarding?
+- Documentação necessária?
+- Treinamento requerido?
+
+#### 2. **Análise Colaborativa**
+- Discussão das respostas com stakeholders
+- Avaliação de critérios: Performance, Manutenibilidade, Segurança, Custo
+- Matriz de decisão com scores quantificados
+
+#### 3. **Documentação ADR**
+- Usar template em `docs/templates/adr-template.md`
+- Numeração sequencial (ADR-0001, ADR-0002...)
+- Status: 📝 Rascunho → 🔄 Em Revisão → ✅ Aceita
+
+#### 4. **Implementação e Monitoramento**
+- Vincular à task do Linear
+- Definir métricas de sucesso
+- Acompanhar impactos pós-implementação
 
 ## Boas Práticas de Qualidade
 
@@ -98,6 +167,16 @@ Primeiro AI Agent que servirá como template para outros projetos de agentes. O 
 - **Cypress**: Usar Cypress para execução dos casos de testes end-to-end
 - **Cobertura de Testes**: Manter cobertura mínima de 80% para código crítico
 - **Testes Automatizados**: Integrar testes no pipeline CI/CD
+
+## Abordagem de Desenvolvimento
+
+### Frontend-First Strategy
+
+- **UX/UI Primeiro**: Validar experiência do usuário antes da implementação backend
+- **Design System**: Criar sistema de componentes reutilizáveis desde o início
+- **Prototipagem**: Desenvolver protótipos navegáveis para validação
+- **Testes de Usabilidade**: Validar com usuários reais antes de prosseguir
+- **Mock Backend**: Usar dados mock para desenvolvimento frontend independente
 
 ## Boas Práticas de Gestão
 
@@ -109,16 +188,25 @@ Primeiro AI Agent que servirá como template para outros projetos de agentes. O 
 
 - **Log de Tempo**: Registrar todas as atividades em `management/time-tracking.md`
 - **Formato Padronizado**: `[YYYY-MM-DD HH:MM] - [HH:MM] - [TYPE] - [DESCRIPTION] - [LINEAR_ID] - [STATUS]`
-- **Tipos de Atividade**: DEV, DOCS, ARCH, TEST, MEET, PLAN, DEBUG
+- **Tipos de Atividade**: UX, DEV, DOCS, ARCH, TEST, MEET, PLAN, DEBUG
 - **Análise Semanal**: Usar `management/scripts/weekly-analysis.sh` para relatórios
 - **Relatórios Detalhados**: Usar `management/scripts/time-report.py` para análises avançadas
-- **Metas de Distribuição**: 60-70% DEV, 15-20% DOCS, 10-15% ARCH, 5-10% TEST
+- **Metas de Distribuição Frontend-First**: 40-50% UX/DEV Frontend, 20-30% DEV Backend, 15-20% DOCS, 10-15% TEST
 
 ## Estrutura do Projeto
 
 ```text
 kwanza-agent/
 ├── .claude/                    # Configurações do Claude Code
+├── docs/                       # Documentação técnica
+│   ├── README.md              # Índice da documentação
+│   ├── architecture/          # Documentação de arquitetura
+│   │   ├── decisions/         # ADRs (Architecture Decision Records)
+│   │   ├── diagrams/          # C4 Model, UML (PlantUML)
+│   │   ├── specifications/    # APIs, schemas, integrações
+│   │   └── patterns/          # Padrões de desenvolvimento
+│   └── templates/             # Templates para documentação
+│       └── adr-template.md    # Template para ADRs
 ├── management/                 # Documentação de gestão
 │   ├── roadmap.md             # Roadmap do projeto
 │   ├── time-tracking.md       # Log de tempo de desenvolvimento
