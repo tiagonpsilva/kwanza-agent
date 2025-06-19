@@ -30,7 +30,7 @@ Criar um agente conversacional que permita aos usuários listar, favoritar e cla
 - [ ] **Protótipo navegável** (Figma/FigJam)
 - [ ] **User Journey Mapping**
 - [ ] **Architecture Haiku** da solução (`docs/architecture/`)
-- [ ] **Diagrama C4 Model** (PlantUML) em `docs/architecture/diagrams/`
+- [ ] **Diagrama C4 Model** (PlantUML) em `docs/architecture/views-diagrams/`
 
 #### 1.3 Componentes Base
 
@@ -45,7 +45,7 @@ Criar um agente conversacional que permita aos usuários listar, favoritar e cla
 
 #### 2.1 Landing Page
 
-- [ ] **User Story** com diagramas de sequência (`docs/architecture/diagrams/`)
+- [ ] **User Story** com diagramas de sequência (`docs/architecture/views-diagrams/`)
 - [ ] Design e implementação da landing page
 - [ ] Animações e micro-interactions
 - [ ] SEO e meta tags
@@ -234,7 +234,7 @@ Criar um agente conversacional que permita aos usuários listar, favoritar e cla
 
 ### Documentação
 
-- **PlantUML** para diagramas C4 Model (`docs/architecture/diagrams/`)
+- **PlantUML** para diagramas C4 Model (`docs/architecture/views-diagrams/`)
 - **ADR** para decisões de arquitetura (`docs/architecture/decisions/`)
 - **Architecture Haiku** para visão poética da solução (`docs/architecture/`)
 - **OpenAPI/Swagger** para especificações de API (`docs/architecture/specifications/`)

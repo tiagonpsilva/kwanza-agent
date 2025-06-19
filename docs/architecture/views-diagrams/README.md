@@ -1,6 +1,6 @@
-# Diagramas de Arquitetura
+# Views e Diagramas de Arquitetura
 
-Este diretório contém todos os diagramas técnicos do projeto Kwanza Agent.
+Este diretório contém todas as views arquiteturais e diagramas técnicos do projeto Kwanza Agent.
 
 ## Estrutura dos Diagramas
 

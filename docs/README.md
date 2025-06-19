@@ -14,8 +14,8 @@ Architecture Decision Records - Documentação de todas as decisões arquitetura
 - **Template**: Seguir template padrão ADR
 - **Versionamento**: Todas as ADRs são versionadas no Git
 
-#### 📁 `diagrams/`
-Diagramas técnicos da solução.
+#### 📁 `views-diagrams/`
+Diagramas técnicos da solução (views arquiteturais).
 
 - **C4 Model**: Diagramas de contexto, containers, componentes e código
 - **UML**: Diagramas de sequência, classe, atividades

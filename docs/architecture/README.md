@@ -36,8 +36,8 @@ Architecture Decision Records - Documentação de todas as decisões arquitetura
 5. **Revisão**: Validação com stakeholders
 6. **Implementação**: Aplicação da decisão
 
-### 📁 `diagrams/`
-Diagramas técnicos da solução usando C4 Model e UML.
+### 📁 `views-diagrams/`
+Diagramas técnicos da solução (views arquiteturais) usando C4 Model e UML.
 
 - **C4 Context**: Visão externa do sistema
 - **C4 Containers**: Aplicações e serviços

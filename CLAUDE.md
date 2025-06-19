@@ -103,7 +103,7 @@ Primeiro AI Agent que servirá como template para outros projetos de agentes. O 
 
 - **Architecture Haiku**: Mantido em `docs/architecture/README.md` - visão poética da solução
 - **ADR (Architecture Decision Records)**: Processo estruturado de decisões arquiteturais
-- **C4 Model**: Diagramas PlantUML em `docs/architecture/diagrams/`
+- **C4 Model**: Diagramas PlantUML em `docs/architecture/views-diagrams/`
 - **Especificações Técnicas**: APIs, schemas em `docs/architecture/specifications/`
 - **Padrões**: Documentar padrões em `docs/architecture/patterns/`
 
@@ -202,7 +202,7 @@ kwanza-agent/
 │   ├── README.md              # Índice da documentação
 │   ├── architecture/          # Documentação de arquitetura
 │   │   ├── decisions/         # ADRs (Architecture Decision Records)
-│   │   ├── diagrams/          # C4 Model, UML (PlantUML)
+│   │   ├── views-diagrams/    # C4 Model, UML (PlantUML)
 │   │   ├── specifications/    # APIs, schemas, integrações
 │   │   └── patterns/          # Padrões de desenvolvimento
 │   └── templates/             # Templates para documentação
