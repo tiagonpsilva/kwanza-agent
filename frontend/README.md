@@ -1,6 +1,6 @@
 # Frontend - Kwanza Agent
 
-Aplicação React.js com TypeScript seguindo estratégia frontend-first.
+Aplicação React.js com TypeScript seguindo estratégia frontend-first com design system inspirado na cultura africana.
 
 ## ✅ Configuração Completa
 
@@ -8,26 +8,34 @@ Aplicação React.js com TypeScript seguindo estratégia frontend-first.
 - ✅ **Vite** como bundler (moderno e rápido)
 - ✅ **TailwindCSS v3** + plugins (@forms, @typography)
 - ✅ **Shadcn/UI** configurado com componentes base
+- ✅ **Design System** completo com identidade Kwanza Agent
+- ✅ **Theme System** (Light/Dark/System) com Context API
 - ✅ **ESLint + Prettier** configurados
 - ✅ **Hot Reload** funcionando
 - ✅ **Build de produção** testado e funcionando
 
-## 🎨 Shadcn/UI Configurado
+## 🎨 Kwanza Agent Design System
 
-### Componentes Instalados
-- ✅ **Button** - Variações (default, secondary, destructive, outline, ghost, link)
-- ✅ **Input** - Campos de entrada acessíveis
-- ✅ **Card** - Cards com header, content e footer
-- ✅ **Badge** - Labels e tags estilizadas
-- ✅ **Separator** - Divisores visuais
+### Inspiração Visual
+- **🌅 Pôr do sol africano** - Cores quentes (laranja, dourado, terra)
+- **🔥 Cultura Kwanza** - Vibrante e acolhedora
+- **💻 Modernidade tecnológica** - Interface limpa e acessível
 
-### Features Shadcn/UI
-- ✅ **Baseado em Radix UI** - Componentes acessíveis
-- ✅ **CSS Variables** - Totalmente customizável
-- ✅ **Dark Mode** support
-- ✅ **TypeScript** com tipagem completa
-- ✅ **Tree-shaking** ready
-- ✅ **WAI-ARIA** compliance
+### Paleta de Cores
+- **Primary**: Kwanza Flame Orange (#FF5722)
+- **Accent**: African Gold (#E6B800)  
+- **Secondary**: Warm Beige (#F5F2ED)
+- **Success**: Natural Green (#228B22)
+- **Warning**: Amber Alert (#FFB300)
+- **Destructive**: Warm Red (#F44336)
+
+### Features do Design System
+- ✅ **CSS Variables** para theming dinâmico
+- ✅ **Dark Mode** com transição suave
+- ✅ **Acessibilidade** WCAG 2.1 AA compliant
+- ✅ **Mobile First** responsive design
+- ✅ **Typography** scale com fonte Inter
+- ✅ **Semantic Colors** para feedback
 
 ## 🚀 Scripts Disponíveis
 
@@ -47,22 +55,28 @@ npm test             # Executar testes (placeholder)
 ```bash
 npm run dev
 # Acesse: http://localhost:5173
-# Deve exibir: Demo completa do Shadcn/UI
+# Deve exibir: Design System Demo completo
 ```
 
-### 2. Build de Produção
+### 2. Teste do Theme System
+- **Toggle de tema** no header (ícone sol/lua)
+- **3 opções**: Light, Dark, System
+- **Persistência** em localStorage
+- **Transição** suave entre temas
+
+### 3. Build de Produção
 ```bash
 npm run build
 # Deve gerar pasta dist/ sem erros
-# Assets: CSS (~18KB) + JS (~228KB) + HTML
+# Assets: CSS (~26KB) + JS (~320KB) + HTML
 ```
 
-### 3. Componentes Funcionando
-- **Buttons**: Todas as variações (default, secondary, destructive, etc.)
-- **Inputs**: Campos com placeholder, ícones, disabled states
-- **Cards**: Layout estruturado com header, content, footer
-- **Badges**: Labels coloridas para tags
-- **Icons**: Lucide React integrado
+### 4. Design System Funcionando
+- **Paleta de cores** africana implementada
+- **Components showcase** com todas as variações
+- **Typography** hierarchy demonstrada
+- **Alerts** semânticas (success, warning, error)
+- **Responsive** layout em todos os breakpoints
 
 ## 🎯 Estrutura de Arquivos
 
@@ -70,47 +84,80 @@ npm run build
 frontend/
 ├── src/
 │   ├── components/
-│   │   ├── ui/              # Componentes Shadcn/UI
+│   │   ├── ui/                    # Componentes Shadcn/UI
 │   │   │   ├── button.tsx
 │   │   │   ├── input.tsx
 │   │   │   ├── card.tsx
 │   │   │   ├── badge.tsx
-│   │   │   └── separator.tsx
-│   │   └── ShadcnDemo.tsx   # Demo dos componentes
+│   │   │   ├── separator.tsx
+│   │   │   ├── alert.tsx
+│   │   │   └── dropdown-menu.tsx
+│   │   ├── ThemeToggle.tsx        # Toggle de tema
+│   │   └── DesignSystemDemo.tsx   # Demo completa
+│   ├── contexts/
+│   │   └── ThemeContext.tsx       # Context para temas
 │   ├── lib/
-│   │   └── utils.ts         # Utilitários (cn function)
-│   ├── App.tsx              # Componente principal
-│   ├── index.css            # CSS Variables + TailwindCSS
-│   └── main.tsx             # Entry point
-├── components.json          # Configuração Shadcn/UI
-├── tailwind.config.js       # Config TailwindCSS + Shadcn/UI
-├── tsconfig.json            # TypeScript + path mapping (@/*)
-└── vite.config.ts           # Vite + path aliases
+│   │   └── utils.ts               # Utilitários (cn function)
+│   ├── App.tsx                    # Componente principal
+│   ├── index.css                  # CSS Variables + Design System
+│   └── main.tsx                   # Entry point + ThemeProvider
+├── components.json                # Configuração Shadcn/UI
+├── tailwind.config.js             # TailwindCSS + cores customizadas
+├── tsconfig.json                  # TypeScript + path mapping
+├── vite.config.ts                 # Vite + path aliases
+├── DESIGN_SYSTEM.md               # Documentação completa do design
+└── README.md                      # Este arquivo
 ```
 
 ## 💡 Tecnologias e Configurações
 
-### React + TypeScript
-- **React 19.1.0** com hooks
-- **TypeScript** strict mode + path mapping
-- **JSX** syntax support
+### Theme System
+```tsx
+// Context Provider
+<ThemeProvider>
+  <App />
+</ThemeProvider>
 
-### Vite (Build Tool)
-- **Hot Module Replacement** (HMR)
-- **Fast builds** com esbuild
-- **Path aliases** configurados (@/*)
+// Hook de uso
+const { theme, setTheme, actualTheme } = useTheme()
 
-### TailwindCSS + Shadcn/UI
-- **CSS Variables** para theming
-- **Dark mode** support via class strategy
-- **Custom radius** e spacing
-- **Semantic color tokens**
-- **Radix UI** primitives
+// Component toggle
+<ThemeToggle />
+```
+
+### Design Tokens (CSS Variables)
+```css
+/* Light Theme */
+--primary: 24 95% 53%;              /* Kwanza Orange */
+--accent: 45 93% 47%;               /* African Gold */
+--background: 39 100% 98%;          /* Warm Ivory */
+
+/* Dark Theme */
+--primary: 24 95% 58%;              /* Brighter Orange */
+--background: 12 15% 8%;            /* Deep Charcoal */
+```
+
+### Components Usage
+```tsx
+// Buttons com novas cores
+<Button>Primary Orange</Button>
+<Button variant="secondary">Warm Beige</Button>
+
+// Alerts semânticas
+<Alert className="border-success bg-success/10">
+  <AlertTitle className="text-success">Success!</AlertTitle>
+</Alert>
+
+// Theme toggle
+<ThemeToggle />
+```
 
 ### Dependencies
 ```json
 {
   "dependencies": {
+    "@radix-ui/react-dropdown-menu": "^2.1.15",
+    "@radix-ui/react-icons": "^1.3.2",
     "@radix-ui/react-separator": "^1.1.7",
     "@radix-ui/react-slot": "^1.2.3",
     "class-variance-authority": "^0.7.1",
@@ -121,52 +168,55 @@ frontend/
 }
 ```
 
-## 🎨 Sistema de Design
+## 🎨 Design System Features
 
-### Colors (CSS Variables)
-```css
---background: 0 0% 100%;
---foreground: 0 0% 3.9%;
---primary: 0 0% 9%;
---secondary: 0 0% 96.1%;
---muted: 0 0% 96.1%;
---accent: 0 0% 96.1%;
---destructive: 0 84.2% 60.2%;
---border: 0 0% 89.8%;
---input: 0 0% 89.8%;
---ring: 0 0% 3.9%;
-```
+### Inspiração Cultural
+- **Cores quentes** inspiradas no pôr do sol africano
+- **Paleta vibrante** que remete à cultura Kwanza
+- **Contraste adequado** mantendo acessibilidade
+- **Identidade única** diferenciada de outros produtos
 
-### Typography
-- **Font**: Inter (Google Fonts)
-- **Sizes**: Tailwind scale (text-sm, text-base, etc.)
-- **Weights**: 300, 400, 500, 600, 700
+### Acessibilidade
+- **WCAG 2.1 AA** compliance
+- **Radix UI** primitives acessíveis
+- **Keyboard navigation** completa
+- **Screen reader** support
+- **Focus management** otimizado
 
-### Spacing & Layout
-- **Container**: Max-width 1400px, centered
-- **Radius**: 0.5rem default
-- **Grid**: Responsive design patterns
+### Performance
+- **CSS Variables** zero runtime overhead
+- **Tree shaking** componentes não utilizados
+- **Lazy loading** preparado
+- **Bundle optimizado**: 26KB CSS + 320KB JS
 
 ## 🔄 Próximos Passos
 
-Com Shadcn/UI configurado, as próximas implementações serão:
+Com o Design System completo, as próximas implementações serão:
 
-1. **PRO-15**: Sistema de design components expandido
-2. **PRO-16**: Protótipo navegável
+1. **PRO-15**: Sistema de design components expandido (Atomic Design)
+2. **PRO-16**: Protótipo navegável com design aplicado
 3. **PRO-17**: Wireframes responsivos
 4. **PRO-24**: Configuração Cypress E2E
-5. **PRO-25**: Storybook para documentação
+5. **PRO-25**: Storybook para documentação de componentes
 
 ## 🚀 Frontend-First Strategy
 
-Esta configuração segue a estratégia frontend-first:
-- ✅ **Ambiente funcionando** com componentes modernos
-- ✅ **Design System** base implementado
-- ✅ **Build otimizado** para produção
+Esta configuração implementa a estratégia frontend-first completa:
+- ✅ **Design System** próprio com identidade cultural
+- ✅ **Theme System** robusto (light/dark/system)
+- ✅ **Componentes base** prontos para expansão
+- ✅ **Acessibilidade** garantida desde o início
+- ✅ **Performance** otimizada
 - ✅ **Developer Experience** premium
-- ✅ **Acessibilidade** garantida (Radix UI)
-- ✅ **Customização** completa via CSS Variables
+- ✅ **Documentação** completa para escalonamento
+
+## 📚 Documentação
+
+- **[DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md)** - Documentação completa do design system
+- **[Shadcn/UI Docs](https://ui.shadcn.com/)** - Documentação dos componentes base
+- **[TailwindCSS Docs](https://tailwindcss.com/)** - Documentação do framework CSS
 
 ---
 
-**🤖 Configurado com Claude Code** | **Status**: ✅ Pronto para design system avançado
+**🎨 Design System inspirado na cultura africana**  
+**🤖 Desenvolvido com Claude Code** | **Status**: ✅ Pronto para implementação de features

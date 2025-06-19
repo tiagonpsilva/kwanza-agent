@@ -1,8 +1,8 @@
-import { ShadcnDemo } from './components/ShadcnDemo'
+import { DesignSystemDemo } from './components/DesignSystemDemo'
 import './App.css'
 
 function App() {
-  return <ShadcnDemo />
+  return <DesignSystemDemo />
 }
 
 export default App

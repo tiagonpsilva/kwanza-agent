@@ -6,48 +6,82 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
+    /* Kwanza Agent Design System - Light Theme */
+    /* Inspired by African sunset, technology and warmth */
+    
+    /* Background & Surfaces */
+    --background: 39 100% 98%;           /* Warm ivory */
+    --foreground: 12 15% 15%;            /* Deep brown */
+    --card: 0 0% 100%;                   /* Pure white */
+    --card-foreground: 12 15% 15%;       /* Deep brown */
+    --popover: 0 0% 100%;                /* Pure white */
+    --popover-foreground: 12 15% 15%;    /* Deep brown */
+    
+    /* Brand Colors - Inspired by African sunset */
+    --primary: 24 95% 53%;               /* Vibrant orange (Kwanza flame) */
+    --primary-foreground: 0 0% 100%;     /* White text on orange */
+    --secondary: 39 39% 92%;             /* Warm beige */
+    --secondary-foreground: 12 15% 15%;  /* Deep brown */
+    
+    /* Accent & Supporting */
+    --accent: 45 93% 47%;                /* Golden yellow (African gold) */
+    --accent-foreground: 12 15% 15%;     /* Deep brown */
+    --muted: 39 27% 94%;                 /* Light warm gray */
+    --muted-foreground: 25 8% 45%;       /* Medium brown-gray */
+    
+    /* Semantic Colors */
+    --destructive: 0 84% 60%;            /* Warm red */
+    --destructive-foreground: 0 0% 100%; /* White */
+    --success: 142 76% 36%;              /* Natural green */
+    --success-foreground: 0 0% 100%;     /* White */
+    --warning: 43 96% 56%;               /* Amber */
+    --warning-foreground: 12 15% 15%;    /* Deep brown */
+    
+    /* UI Elements */
+    --border: 39 20% 85%;                /* Warm light border */
+    --input: 39 20% 85%;                 /* Warm input border */
+    --ring: 24 95% 53%;                  /* Orange focus ring */
+    
+    /* Design tokens */
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
+    /* Kwanza Agent Design System - Dark Theme */
+    /* Inspired by African night sky and warm fire light */
+    
+    /* Background & Surfaces */
+    --background: 12 15% 8%;             /* Deep charcoal brown */
+    --foreground: 39 85% 92%;            /* Warm light cream */
+    --card: 12 15% 10%;                  /* Slightly lighter charcoal */
+    --card-foreground: 39 85% 92%;       /* Warm light cream */
+    --popover: 12 15% 10%;               /* Slightly lighter charcoal */
+    --popover-foreground: 39 85% 92%;    /* Warm light cream */
+    
+    /* Brand Colors - Adapted for dark theme */
+    --primary: 24 95% 58%;               /* Brighter orange for dark bg */
+    --primary-foreground: 12 15% 8%;     /* Dark text on orange */
+    --secondary: 12 15% 18%;             /* Dark brown-gray */
+    --secondary-foreground: 39 85% 92%;  /* Warm light cream */
+    
+    /* Accent & Supporting */
+    --accent: 45 93% 52%;                /* Brighter golden yellow */
+    --accent-foreground: 12 15% 8%;      /* Dark text */
+    --muted: 12 15% 15%;                 /* Dark muted brown */
+    --muted-foreground: 39 20% 65%;      /* Medium warm gray */
+    
+    /* Semantic Colors - Adapted for dark theme */
+    --destructive: 0 84% 65%;            /* Slightly brighter red */
+    --destructive-foreground: 0 0% 100%; /* White */
+    --success: 142 76% 41%;              /* Brighter green */
+    --success-foreground: 0 0% 100%;     /* White */
+    --warning: 43 96% 61%;               /* Brighter amber */
+    --warning-foreground: 12 15% 8%;     /* Dark text */
+    
+    /* UI Elements */
+    --border: 12 15% 22%;                /* Dark border */
+    --input: 12 15% 22%;                 /* Dark input border */
+    --ring: 24 95% 58%;                  /* Orange focus ring */
   }
 }
 
