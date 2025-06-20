@@ -1,13 +1,19 @@
 import { RouterProvider } from "react-router-dom"
 import { router } from "@/router/routes"
 import { ThemeProvider } from "@/contexts/ThemeContext"
+import { ToastProvider } from "@/contexts/ToastContext"
+import { ErrorBoundary } from "@/components/atoms/ErrorBoundary"
 import './App.css'
 
 function App() {
   return (
-    <ThemeProvider>
-      <RouterProvider router={router} />
-    </ThemeProvider>
+    <ErrorBoundary>
+      <ThemeProvider>
+        <ToastProvider>
+          <RouterProvider router={router} />
+        </ToastProvider>
+      </ThemeProvider>
+    </ErrorBoundary>
   )
 }
 

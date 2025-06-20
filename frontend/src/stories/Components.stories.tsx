@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import React from 'react'
 
 // Atoms
 import { H1, H2, H3, P, Lead, Small, Code } from '../components/atoms/Typography'

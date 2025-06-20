@@ -4,6 +4,8 @@
 export * from "./atoms/Typography"
 export * from "./atoms/Icon"
 export * from "./atoms/Logo"
+export * from "./atoms/LoadingSpinner"
+export * from "./atoms/ErrorBoundary"
 
 // Molecules  
 export * from "./molecules"

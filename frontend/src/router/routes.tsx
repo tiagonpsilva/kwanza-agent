@@ -6,7 +6,8 @@ import {
   ChatPage,
   SettingsPage,
   NotFoundPage,
-  ErrorPage
+  ErrorPage,
+  LoadingStatesDemo
 } from "@/pages"
 
 // Route configuration with proper error handling
@@ -45,6 +46,12 @@ export const router = createBrowserRouter([
   {
     path: "/favorites",
     element: <DashboardPage />, // Reuse dashboard for now  
+    errorElement: <ErrorPage />
+  },
+  // Demo page for loading states (development only)
+  {
+    path: "/demo/loading-states",
+    element: <LoadingStatesDemo />,
     errorElement: <ErrorPage />
   },
   // Catch-all route for 404

@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
+import { ButtonLoading } from "@/components/ui/button-loading"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { InputField } from "@/components/molecules/FormField"
 import { Logo } from "@/components/atoms/Logo"
@@ -176,13 +177,14 @@ export function LoginForm({
               </Button>
             </div>
 
-            <Button
+            <ButtonLoading
               type="submit"
               className="w-full"
-              disabled={isLoading}
+              loading={isLoading}
+              loadingText="Entrando..."
             >
-              {isLoading ? "Entrando..." : "Entrar"}
-            </Button>
+              Entrar
+            </ButtonLoading>
           </form>
 
           <div className="text-center">
