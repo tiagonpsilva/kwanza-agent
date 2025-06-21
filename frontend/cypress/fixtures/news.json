@@ -1,0 +1,24 @@
+{
+  "sampleNews": [
+    {
+      "id": 1,
+      "title": "React 19 traz recursos revolucionários",
+      "description": "Nova versão do React promete melhorar performance",
+      "category": "Frontend",
+      "source": "TechCrunch",
+      "timeAgo": "2h",
+      "readTime": "3 min",
+      "isFavorited": false
+    },
+    {
+      "id": 2,
+      "title": "TypeScript 5.3 lançado oficialmente",
+      "description": "Novas funcionalidades de tipagem estática",
+      "category": "TypeScript",
+      "source": "Microsoft",
+      "timeAgo": "1d",
+      "readTime": "5 min",
+      "isFavorited": true
+    }
+  ]
+}

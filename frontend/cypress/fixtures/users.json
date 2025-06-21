@@ -1,0 +1,11 @@
+{
+  "testUser": {
+    "email": "admin@kwanza.com",
+    "password": "123456",
+    "name": "Usuário Teste"
+  },
+  "invalidUser": {
+    "email": "invalid@test.com",
+    "password": "wrongpassword"
+  }
+}
