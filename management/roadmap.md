@@ -29,8 +29,6 @@ Criar um agente conversacional que permita aos usuários listar, favoritar e cla
 - [ ] **Wireframes** de todas as telas principais
 - [ ] **Protótipo navegável** (Figma/FigJam)
 - [ ] **User Journey Mapping**
-- [ ] **Architecture Haiku** da solução (`docs/architecture/`)
-- [ ] **Diagrama C4 Model** (PlantUML) em `docs/architecture/views-diagrams/`
 
 #### 1.3 Componentes Base
 
@@ -124,6 +122,8 @@ Criar um agente conversacional que permita aos usuários listar, favoritar e cla
 
 #### 5.1 Infraestrutura Base
 
+- [ ] **Architecture Haiku** da solução (`docs/architecture/`)
+- [ ] **Diagrama C4 Model** (PlantUML) em `docs/architecture/views-diagrams/`
 - [ ] **ADR** para decisões de arquitetura (`docs/architecture/decisions/`)
 - [ ] Configuração do FastAPI (backend)
 - [ ] Configuração do PostgreSQL (dados relacionais)

@@ -329,24 +329,24 @@ Co-authored-by: Claude <noreply@anthropic.com>
 
 **Exemplos:**
 ```bash
-feat(PRO-15): implement atomic design system
+feat(PRO-15): implementar sistema de design atômico
 
-- Add Typography atoms (H1-H4, P, Small, Lead, Code)
-- Add Icon system with Kwanza variants
-- Add Logo component with size variants
-- Create FormField molecules with validation
-- Implement NewsCard components (full and compact)
+- Adicionar atoms de Typography (H1-H4, P, Small, Lead, Code)
+- Criar sistema de ícones com variantes Kwanza
+- Implementar componente Logo com variações de tamanho
+- Criar molecules FormField com validação
+- Implementar componentes NewsCard (completo e compacto)
 
 Linear-Task: PRO-15
 Co-authored-by: Claude <noreply@anthropic.com>
 ```
 
 ```bash
-fix(PRO-22): resolve TypeScript navigation errors
+fix(PRO-22): corrigir erros TypeScript na navegação
 
-- Fix navigateTo hook typing to accept string | RoutePath
-- Remove unused imports in error pages
-- Update breadcrumbs integration in templates
+- Corrigir tipagem do hook navigateTo para aceitar string | RoutePath
+- Remover imports não utilizados nas páginas de erro
+- Atualizar integração breadcrumbs nos templates
 
 Linear-Task: PRO-22
 Co-authored-by: Claude <noreply@anthropic.com>
@@ -506,17 +506,86 @@ git push origin v0.1.0
 **v0.3.0**: Business Logic (News, Favorites, Classification)
 **v1.0.0**: MVP Complete (All core features working)
 
-### 🔄 **Workflow Completo Git + Linear**
+### 🔄 **Workflow OBRIGATÓRIO Git + Linear**
 
-#### **Fluxo por Task:**
+#### **Fluxo CRÍTICO por Task (SEGUIR EXATAMENTE):**
 
-1. **📋 Task criada no Linear** → Status "Backlog"
-2. **🌿 Criar branch** → `feature/PRO-XX-description`
-3. **⚙️ Desenvolver** → Commits com convenção padrão
-4. **🔄 Task para "In Review"** → Documentar tudo na task
-5. **✅ Aprovação do PO** → Task para "Done"
-6. **🚀 Push automático** → Enviar para remote
-7. **🔗 Atualizar task** → Link para commits no GitHub
+**🚨 REGRA INVIOLÁVEL: NUNCA COMEÇAR CÓDIGO SEM ATUALIZAR LINEAR PRIMEIRO 🚨**
+
+1. **📋 Task identificada** → Status "Backlog" (estado inicial)
+
+2. **🔛 ANTES DE QUALQUER CÓDIGO:**
+   - ✅ **Mover task para "In Progress"** no Linear
+   - ✅ **Adicionar comentário** explicando o que será implementado
+   - ✅ **Criar branch** → `feature/PRO-XX-description`
+   - ⚠️ **SÓ DEPOIS disso iniciar desenvolvimento**
+
+3. **⚙️ Durante Desenvolvimento:**
+   - ✅ **Commits frequentes** com convenção padrão
+   - ✅ **Atualizações periódicas** na task se necessário
+   - ✅ **Task permanece "In Progress"** durante todo desenvolvimento
+
+4. **🔄 AO FINALIZAR IMPLEMENTAÇÃO:**
+   - ✅ **Mover task para "In Review"** (NUNCA "Done")
+   - ✅ **Adicionar comentário COMPLETO na task** com:
+     - 📝 **Resumo detalhado** do que foi implementado
+     - 🧪 **Como testar** (URLs, comandos, cenários)
+     - 📂 **Arquivos criados/modificados**
+     - 🔗 **Links relevantes** (Storybook, demo, etc.)
+     - ⚠️ **Problemas encontrados** (se houver)
+     - 📋 **Checklist de validação**
+
+5. **⏳ AGUARDAR APROVAÇÃO:**
+   - ❌ **NUNCA mover para "Done" sem aprovação explícita**
+   - ✅ **Responder dúvidas** do Product Owner se necessário
+   - ✅ **Fazer ajustes** se solicitado (task volta para "In Progress")
+
+6. **✅ APÓS APROVAÇÃO EXPLÍCITA:**
+   - ✅ **Product Owner move para "Done"**
+   - ✅ **Push automático** para repositório remoto
+   - ✅ **Atualizar task** com links do GitHub
+   - ✅ **Pronto para próxima task**
+
+#### **Exemplo de Comentário OBRIGATÓRIO ao mover para "In Review":**
+
+```markdown
+## ✅ PRO-XX IMPLEMENTAÇÃO FINALIZADA
+
+### 🎯 **O que foi implementado:**
+- [Descrever funcionalidades em detalhes]
+- [Listar componentes criados]
+- [Mencionar integrações feitas]
+
+### 🧪 **Como testar:**
+- **URL de teste**: http://localhost:5173/demo/loading-states
+- **Comandos**: `npm run dev` e `npm run storybook`
+- **Cenários de teste**: [Descrever cenários específicos]
+
+### 📂 **Arquivos modificados:**
+- `src/components/atoms/LoadingSpinner.tsx` - Novo componente
+- `src/components/molecules/ErrorState.tsx` - Estados de erro
+- `src/App.tsx` - Integração de providers
+- [Lista completa de arquivos]
+
+### 🔗 **Links relevantes:**
+- **Storybook**: http://localhost:6006
+- **Demo page**: /demo/loading-states
+- **Documentação**: src/components/README.md
+
+### ⚠️ **Observações:**
+- [Mencionar limitações ou problemas]
+- [Dependências que precisam ser instaladas]
+- [Configurações especiais]
+
+### ✅ **Checklist de validação:**
+- [x] Build sem erros TypeScript
+- [x] Eslint/Prettier passando
+- [x] Componentes documentados no Storybook
+- [x] Responsividade testada
+- [x] Themes (light/dark) funcionando
+
+**🔄 STATUS:** Aguardando aprovação para mover para "Done"
+```
 
 #### **Fluxo de Release:**
 
