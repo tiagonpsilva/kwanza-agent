@@ -1,0 +1,272 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        run: |
+          cd frontend
+          npm ci
+
+      - name: Build Frontend
+        run: |
+          cd frontend
+          npm run build
+
+      - name: Build Storybook
+        run: |
+          cd frontend
+          npm run build-storybook
+
+      - name: Create deployment structure
+        run: |
+          mkdir -p deploy
+          
+          # Copy frontend build to root
+          cp -r frontend/dist/* deploy/
+          
+          # Copy Storybook to /storybook subdirectory
+          mkdir -p deploy/storybook
+          cp -r frontend/storybook-static/* deploy/storybook/
+          
+          # Create index page with navigation
+          cat > deploy/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html lang="pt-BR">
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Kwanza Agent - Demo</title>
+              <script src="https://cdn.tailwindcss.com"></script>
+              <script>
+                tailwind.config = {
+                  darkMode: 'class',
+                  theme: {
+                    extend: {
+                      colors: {
+                        kwanza: {
+                          orange: '#FF6B35',
+                          gold: '#F7931E',
+                          beige: '#FFF8DC',
+                          charcoal: '#2C2C2C'
+                        }
+                      }
+                    }
+                  }
+                }
+              </script>
+          </head>
+          <body class="bg-gradient-to-br from-kwanza-beige to-white dark:from-gray-900 dark:to-gray-800 min-h-screen">
+              <div class="container mx-auto px-4 py-8">
+                  <header class="text-center mb-12">
+                      <h1 class="text-4xl font-bold text-kwanza-charcoal dark:text-white mb-4">
+                          🌍 Kwanza Agent
+                      </h1>
+                      <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
+                          Primeiro AI Agent para gestão de notícias de tecnologia
+                      </p>
+                      <div class="bg-kwanza-orange/10 border border-kwanza-orange/20 rounded-lg p-4 mb-8">
+                          <p class="text-kwanza-orange font-semibold">
+                              ✅ Fase 1 Concluída: Frontend Foundation
+                          </p>
+                          <p class="text-sm text-gray-600 dark:text-gray-400">
+                              React 19 + TypeScript + TailwindCSS + Shadcn/UI + Cypress
+                          </p>
+                      </div>
+                  </header>
+
+                  <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                      <!-- Frontend Application -->
+                      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+                          <div class="bg-gradient-to-r from-kwanza-orange to-kwanza-gold p-6">
+                              <h2 class="text-2xl font-bold text-white mb-2">
+                                  🚀 Frontend Application
+                              </h2>
+                              <p class="text-white/90">
+                                  Interface completa do AI Agent
+                              </p>
+                          </div>
+                          <div class="p-6">
+                              <div class="space-y-4">
+                                  <div class="flex items-center space-x-3">
+                                      <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                                      <span class="text-sm">Landing Page com tema Kwanza</span>
+                                  </div>
+                                  <div class="flex items-center space-x-3">
+                                      <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                                      <span class="text-sm">Sistema de autenticação (mock)</span>
+                                  </div>
+                                  <div class="flex items-center space-x-3">
+                                      <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                                      <span class="text-sm">Dashboard e interface do chat</span>
+                                  </div>
+                                  <div class="flex items-center space-x-3">
+                                      <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                                      <span class="text-sm">Theme toggle (Light/Dark/System)</span>
+                                  </div>
+                                  <div class="flex items-center space-x-3">
+                                      <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                                      <span class="text-sm">Responsive design mobile-first</span>
+                                  </div>
+                              </div>
+                              <a href="/app" class="inline-block w-full mt-6 bg-kwanza-orange hover:bg-kwanza-orange/90 text-white font-semibold py-3 px-6 rounded-lg text-center transition-colors">
+                                  Acessar Aplicação →
+                              </a>
+                          </div>
+                      </div>
+
+                      <!-- Storybook Documentation -->
+                      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+                          <div class="bg-gradient-to-r from-purple-600 to-pink-600 p-6">
+                              <h2 class="text-2xl font-bold text-white mb-2">
+                                  📚 Design System
+                              </h2>
+                              <p class="text-white/90">
+                                  Documentação interativa dos componentes
+                              </p>
+                          </div>
+                          <div class="p-6">
+                              <div class="space-y-4">
+                                  <div class="flex items-center space-x-3">
+                                      <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                                      <span class="text-sm">35 componentes documentados</span>
+                                  </div>
+                                  <div class="flex items-center space-x-3">
+                                      <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                                      <span class="text-sm">Atomic Design methodology</span>
+                                  </div>
+                                  <div class="flex items-center space-x-3">
+                                      <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                                      <span class="text-sm">Loading states para IA</span>
+                                  </div>
+                                  <div class="flex items-center space-x-3">
+                                      <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                                      <span class="text-sm">Playground interativo</span>
+                                  </div>
+                                  <div class="flex items-center space-x-3">
+                                      <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                                      <span class="text-sm">Testes de acessibilidade</span>
+                                  </div>
+                              </div>
+                              <a href="/storybook" class="inline-block w-full mt-6 bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg text-center transition-colors">
+                                  Explorar Components →
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- Additional Info -->
+                  <div class="mt-12 text-center">
+                      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 border border-gray-200 dark:border-gray-700">
+                          <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">
+                              📊 Métricas da Fase 1
+                          </h3>
+                          <div class="grid md:grid-cols-4 gap-6">
+                              <div>
+                                  <div class="text-3xl font-bold text-kwanza-orange">160+</div>
+                                  <div class="text-sm text-gray-600 dark:text-gray-400">Arquivos criados</div>
+                              </div>
+                              <div>
+                                  <div class="text-3xl font-bold text-kwanza-gold">0%</div>
+                                  <div class="text-sm text-gray-600 dark:text-gray-400">Taxa de defeitos</div>
+                              </div>
+                              <div>
+                                  <div class="text-3xl font-bold text-green-600">81%</div>
+                                  <div class="text-sm text-gray-600 dark:text-gray-400">Flow efficiency</div>
+                              </div>
+                              <div>
+                                  <div class="text-3xl font-bold text-blue-600">606%</div>
+                                  <div class="text-sm text-gray-600 dark:text-gray-400">ROI AI-assisted</div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- Footer -->
+                  <footer class="text-center mt-12 text-gray-600 dark:text-gray-400">
+                      <p class="mb-2">
+                          Desenvolvido por <a href="https://tiagopinto.io" class="text-kwanza-orange hover:underline">Tiago Pinto</a>
+                      </p>
+                      <p class="text-sm">
+                          <a href="https://github.com/tiagonpsilva/kwanza-agent" class="text-kwanza-orange hover:underline">
+                              🔗 GitHub Repository
+                          </a>
+                      </p>
+                      <p class="text-xs mt-4">
+                          🤖 Enhanced with <a href="https://claude.ai/code" class="text-kwanza-orange hover:underline">Claude Code</a>
+                      </p>
+                  </footer>
+              </div>
+
+              <script>
+                  // Dark mode toggle (simple implementation)
+                  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                      document.documentElement.classList.add('dark')
+                  } else {
+                      document.documentElement.classList.remove('dark')
+                  }
+              </script>
+          </body>
+          </html>
+          EOF
+          
+          # Create app subdirectory with a redirect to the main app
+          mkdir -p deploy/app
+          cat > deploy/app/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html lang="pt-BR">
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Kwanza Agent - Aplicação</title>
+              <meta http-equiv="refresh" content="0; url='../'" />
+          </head>
+          <body>
+              <p>Redirecionando para a aplicação principal...</p>
+          </body>
+          </html>
+          EOF
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './deploy'
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { useState } from 'react'
 
 // Loading Components
-import { LoadingSpinner, LoadingScreen, LoadingOverlay } from '../components/atoms/LoadingSpinner'
+import { LoadingSpinner, LoadingScreen } from '../components/atoms/LoadingSpinner'
 import { ButtonLoading } from '../components/ui/button-loading'
 import { ErrorState, NetworkError, ServerError } from '../components/molecules/ErrorState'
 import { 
