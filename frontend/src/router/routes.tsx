@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom"
 import {
   LandingPage,
+  LandingLoginPage,
   LoginPage,
   DashboardPage,
   ChatPage,
@@ -14,6 +15,11 @@ import {
 export const router = createBrowserRouter([
   {
     path: "/",
+    element: <LandingLoginPage />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: "/landing",
     element: <LandingPage />,
     errorElement: <ErrorPage />
   },
@@ -64,6 +70,7 @@ export const router = createBrowserRouter([
 // Route constants for type safety
 export const ROUTES = {
   HOME: "/",
+  LANDING: "/landing",
   LOGIN: "/login", 
   DASHBOARD: "/dashboard",
   CHAT: "/chat",

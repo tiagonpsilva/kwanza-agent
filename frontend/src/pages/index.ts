@@ -1,5 +1,6 @@
 // Pages Export
 export { LandingPage } from "./LandingPage"
+export { LandingLoginPage } from "./LandingLoginPage"
 export { LoginPage } from "./LoginPage"
 export { DashboardPage } from "./DashboardPage"
 export { ChatPage } from "./ChatPage"
