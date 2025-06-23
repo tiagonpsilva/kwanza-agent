@@ -285,32 +285,40 @@ npm run e2e
 ## 🌐 GitHub Pages (LIVE DEMO)
 
 ### 🚀 Frontend Application (AO VIVO)
-**Live URL**: [https://tiagopinto.io/kwanza-agent/](https://tiagopinto.io/kwanza-agent/)
-- **Status**: ✅ **ONLINE** - Deploy automático via GitHub Actions
-- **Custom Domain**: Configurado via tiagopinto.io
-- **Features**: Tema Kwanza completo, responsive design, dark/light mode
-- **Performance**: Otimizado com CDN global do GitHub
-- **SSL**: HTTPS automático
+**⚠️ Status**: Deploy bem-sucedido, mas configuração de domínio precisa de ajuste
 
-**Páginas Disponíveis Online**:
-- **Landing**: [/](https://tiagopinto.io/kwanza-agent/) - Homepage com tema africano
-- **Login**: [/login](https://tiagopinto.io/kwanza-agent/login) - Interface autenticação
-- **Dashboard**: [/dashboard](https://tiagopinto.io/kwanza-agent/dashboard) - Interface principal
-- **Chat**: [/chat](https://tiagopinto.io/kwanza-agent/chat) - Interface conversacional
-- **Settings**: [/settings](https://tiagopinto.io/kwanza-agent/settings) - Configurações
-- **Demo**: [/demo](https://tiagopinto.io/kwanza-agent/demo) - Loading states showcase
-- **Navigation**: [/nav.html](https://tiagopinto.io/kwanza-agent/nav.html) - Página de navegação
+**URLs para Testar**:
+- **Navigation Helper**: [https://tiagonpsilva.github.io/kwanza-agent/nav.html](https://tiagonpsilva.github.io/kwanza-agent/nav.html)
+- **Frontend Direct**: [https://tiagonpsilva.github.io/kwanza-agent/index.html](https://tiagonpsilva.github.io/kwanza-agent/index.html)
+- **Storybook Direct**: [https://tiagonpsilva.github.io/kwanza-agent/storybook/index.html](https://tiagonpsilva.github.io/kwanza-agent/storybook/index.html)
+
+**Características**:
+- ✅ Deploy automático via GitHub Actions funcionando
+- ✅ 59 arquivos deployados na branch `gh-pages`
+- ✅ Frontend React build (245KB otimizado)
+- ✅ Storybook completo (35+ componentes)
+- ⚠️ Redirecionamento para domínio customizado não configurado
 
 ### 📚 Storybook Documentation (AO VIVO)
-**Live URL**: [https://tiagopinto.io/kwanza-agent/storybook/](https://tiagopinto.io/kwanza-agent/storybook/)
-- **Status**: ✅ **ONLINE** - 35+ componentes documentados
+**Direct URL**: [https://tiagonpsilva.github.io/kwanza-agent/storybook/index.html](https://tiagonpsilva.github.io/kwanza-agent/storybook/index.html)
+- **Status**: ✅ **DEPLOYADO** - 35+ componentes documentados
 - **Features**: Interactive playground, accessibility testing, responsive testing
 - **Content**: Design system completo, loading states para IA, component variations
 
-### 🔗 URLs Alternativas
-**GitHub Pages Direct**: 
-- Frontend: `https://tiagonpsilva.github.io/kwanza-agent/` (redirects to custom domain)
-- Storybook: `https://tiagonpsilva.github.io/kwanza-agent/storybook/` (redirects to custom domain)
+### 🔧 Solução para Acessar
+**Problema**: GitHub Pages configurado com domínio customizado `tiagopinto.io` não funcional  
+**Solução Rápida**: 
+1. Acesse [Repository Settings > Pages](https://github.com/tiagonpsilva/kwanza-agent/settings/pages)
+2. Remova o "Custom domain" `tiagopinto.io`
+3. Clique "Save"
+4. Aguarde 5-10 minutos
+5. Acesse: `https://tiagonpsilva.github.io/kwanza-agent/`
+
+### 🔗 URLs Funcionais (Após Correção)
+**Após remover domínio customizado**:
+- **Frontend**: `https://tiagonpsilva.github.io/kwanza-agent/`
+- **Storybook**: `https://tiagonpsilva.github.io/kwanza-agent/storybook/`
+- **Navigation**: `https://tiagonpsilva.github.io/kwanza-agent/nav.html`
 
 ## 🚀 Deployment Futuro
 
