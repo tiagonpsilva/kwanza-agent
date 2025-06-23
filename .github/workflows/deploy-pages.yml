@@ -56,6 +56,9 @@ jobs:
           mkdir -p deploy/storybook
           cp -r frontend/storybook-static/* deploy/storybook/
           
+          # Remove any existing CNAME to force GitHub Pages default domain
+          rm -f deploy/CNAME
+          
           # Create simple navigation page
           cat > deploy/nav.html << 'EOF'
           <!DOCTYPE html>
