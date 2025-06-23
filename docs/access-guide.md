@@ -285,25 +285,32 @@ npm run e2e
 ## 🌐 GitHub Pages (LIVE DEMO)
 
 ### 🚀 Frontend Application (AO VIVO)
-**Live URL**: [https://tiagonpsilva.github.io/kwanza-agent/](https://tiagonpsilva.github.io/kwanza-agent/)
+**Live URL**: [https://tiagopinto.io/kwanza-agent/](https://tiagopinto.io/kwanza-agent/)
 - **Status**: ✅ **ONLINE** - Deploy automático via GitHub Actions
+- **Custom Domain**: Configurado via tiagopinto.io
 - **Features**: Tema Kwanza completo, responsive design, dark/light mode
 - **Performance**: Otimizado com CDN global do GitHub
 - **SSL**: HTTPS automático
 
 **Páginas Disponíveis Online**:
-- **Landing**: [/](https://tiagonpsilva.github.io/kwanza-agent/) - Homepage com tema africano
-- **Login**: [/login](https://tiagonpsilva.github.io/kwanza-agent/login) - Interface autenticação
-- **Dashboard**: [/dashboard](https://tiagonpsilva.github.io/kwanza-agent/dashboard) - Interface principal
-- **Chat**: [/chat](https://tiagonpsilva.github.io/kwanza-agent/chat) - Interface conversacional
-- **Settings**: [/settings](https://tiagonpsilva.github.io/kwanza-agent/settings) - Configurações
-- **Demo**: [/demo](https://tiagonpsilva.github.io/kwanza-agent/demo) - Loading states showcase
+- **Landing**: [/](https://tiagopinto.io/kwanza-agent/) - Homepage com tema africano
+- **Login**: [/login](https://tiagopinto.io/kwanza-agent/login) - Interface autenticação
+- **Dashboard**: [/dashboard](https://tiagopinto.io/kwanza-agent/dashboard) - Interface principal
+- **Chat**: [/chat](https://tiagopinto.io/kwanza-agent/chat) - Interface conversacional
+- **Settings**: [/settings](https://tiagopinto.io/kwanza-agent/settings) - Configurações
+- **Demo**: [/demo](https://tiagopinto.io/kwanza-agent/demo) - Loading states showcase
+- **Navigation**: [/nav.html](https://tiagopinto.io/kwanza-agent/nav.html) - Página de navegação
 
 ### 📚 Storybook Documentation (AO VIVO)
-**Live URL**: [https://tiagonpsilva.github.io/kwanza-agent/storybook/](https://tiagonpsilva.github.io/kwanza-agent/storybook/)
+**Live URL**: [https://tiagopinto.io/kwanza-agent/storybook/](https://tiagopinto.io/kwanza-agent/storybook/)
 - **Status**: ✅ **ONLINE** - 35+ componentes documentados
 - **Features**: Interactive playground, accessibility testing, responsive testing
 - **Content**: Design system completo, loading states para IA, component variations
+
+### 🔗 URLs Alternativas
+**GitHub Pages Direct**: 
+- Frontend: `https://tiagonpsilva.github.io/kwanza-agent/` (redirects to custom domain)
+- Storybook: `https://tiagonpsilva.github.io/kwanza-agent/storybook/` (redirects to custom domain)
 
 ## 🚀 Deployment Futuro
 
