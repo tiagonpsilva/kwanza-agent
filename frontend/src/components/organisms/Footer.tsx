@@ -21,7 +21,7 @@ export function Footer({ className }: FooterProps) {
             <Logo size="lg" className="mb-4" />
             <P className="text-muted-foreground mb-4 max-w-md">
               Primeiro AI Agent para listar e gerenciar notícias de tecnologia. 
-              Inspirado pela cultura africana e focado em inovação tecnológica.
+              Focado em inovação tecnológica e experiência do usuário.
             </P>
             <div className="flex items-center gap-2">
               <Button variant="ghost" size="sm" className="p-2">
@@ -39,50 +39,35 @@ export function Footer({ className }: FooterProps) {
             </div>
           </div>
 
-          {/* Product Links */}
+          {/* Quick Links */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Produto</h4>
+            <h4 className="font-semibold text-foreground mb-4">Links Rápidos</h4>
             <ul className="space-y-2">
               <li>
                 <Button variant="link" className="p-0 h-auto text-muted-foreground hover:text-foreground">
-                  Funcionalidades
+                  Dashboard
                 </Button>
               </li>
               <li>
                 <Button variant="link" className="p-0 h-auto text-muted-foreground hover:text-foreground">
-                  Preços
+                  Chat
                 </Button>
               </li>
               <li>
                 <Button variant="link" className="p-0 h-auto text-muted-foreground hover:text-foreground">
-                  API
-                </Button>
-              </li>
-              <li>
-                <Button variant="link" className="p-0 h-auto text-muted-foreground hover:text-foreground">
-                  Documentação
+                  Configurações
                 </Button>
               </li>
             </ul>
           </div>
 
-          {/* Company Links */}
+          {/* Support */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Empresa</h4>
+            <h4 className="font-semibold text-foreground mb-4">Suporte</h4>
             <ul className="space-y-2">
               <li>
                 <Button variant="link" className="p-0 h-auto text-muted-foreground hover:text-foreground">
-                  Sobre
-                </Button>
-              </li>
-              <li>
-                <Button variant="link" className="p-0 h-auto text-muted-foreground hover:text-foreground">
-                  Blog
-                </Button>
-              </li>
-              <li>
-                <Button variant="link" className="p-0 h-auto text-muted-foreground hover:text-foreground">
-                  Carreiras
+                  Central de Ajuda
                 </Button>
               </li>
               <li>
@@ -119,20 +104,14 @@ export function Footer({ className }: FooterProps) {
         <div className="text-center">
           <Small className="text-xs">
             🎨 Desenvolvido por{" "}
-            <Button 
-              variant="link" 
-              className="p-0 h-auto text-xs text-primary hover:text-primary/80"
+            <a 
+              href="https://tiagopinto.io" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-primary hover:text-primary/80 underline"
             >
               Tiago Pinto
-            </Button>
-            {" "}({" "}
-            <Button 
-              variant="link" 
-              className="p-0 h-auto text-xs text-primary hover:text-primary/80"
-            >
-              tiagopinto.io
-            </Button>
-            ) • 🤖 Desenvolvido com auxílio de IA usando Claude Code
+            </a>
           </Small>
         </div>
       </div>

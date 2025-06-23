@@ -351,4 +351,4 @@ JS:  320.49KB (100.51KB gzipped)
 ---
 
 **🎨 Design System desenvolvido com inspiração na cultura africana**  
-**🤖 Implementado com Claude Code**
+**⚡ Sistema moderno e acessível**

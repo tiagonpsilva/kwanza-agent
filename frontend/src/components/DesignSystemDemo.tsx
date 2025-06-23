@@ -358,7 +358,7 @@ export function DesignSystemDemo() {
               🚀 Kwanza Agent Design System configurado com sucesso
             </p>
             <p className="text-xs text-muted-foreground">
-              Inspirado pela riqueza cultural africana • Desenvolvido com Claude Code
+              Inspirado pela riqueza cultural africana • Design system moderno e acessível
             </p>
           </div>
 

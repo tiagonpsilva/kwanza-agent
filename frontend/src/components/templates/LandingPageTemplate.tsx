@@ -42,12 +42,12 @@ export function LandingPageTemplate({
             </Badge>
             
             <H1 className="mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Gerencie suas notícias de tecnologia com inteligência africana
+              Gerencie suas notícias de tecnologia com inteligência artificial
             </H1>
             
             <Lead className="mb-8 max-w-2xl mx-auto">
               Descubra, favorite e classifique as principais notícias de tecnologia 
-              através de uma interface conversacional inspirada pela cultura africana.
+              através de uma interface conversacional moderna e intuitiva.
             </Lead>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -116,8 +116,8 @@ export function LandingPageTemplate({
               />
               <FeatureCard
                 icon={SunIcon}
-                title="Design Africano"
-                description="Visual inspirado na cultura africana com cores quentes e acolhedoras"
+                title="Design Moderno"
+                description="Visual contemporâneo com cores quentes e interface acolhedora"
               />
             </div>
           </div>
